@@ -1,0 +1,56 @@
+" Disable vi compatibility
+set nocompatible
+
+" Initialize Pathogen to load all plugins in ~/.vim/bundle
+" ~/.vim/autoload/pathogen.vim
+filetype off
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
+filetype on
+
+" Code Folding
+" za inside of a method to fold/unfold
+set foldmethod=indent
+set foldlevel=99
+
+" TaskList will parse the current file for TODO or FIXME
+" \td to open task list, 'q' to close
+map <leader>td <Plug>TaskList
+
+" Revision History
+" \g to toggle on and off
+map <leader>g :GundoToggle<CR>
+
+" Syntax Highlighting and Validation
+" pyflakes will notify unused imports, among other things
+syntax on
+filetype on
+filetype plugin indent on
+let g:pyflakes_use_quickfix = 0
+
+" Pep8 - http://www.python.org/dev/peps/pep-0008/
+" \8 to jump to each pep8 violation
+let g:pep8_map='<leader>8'
+
+" Search and Replace
+" http://stackoverflow.com/questions/1276403/simple-vim-commands-you-wish-youd-known-earlier
+set incsearch
+
+" Force cursor to always stay in middle of the screen
+set scrolloff=8
+
+" Show tabs/trailing spaces visually different from other spaces
+"set listchars=tab:>-,trail:_ list 
+set list
+set listchars=tab:▸\ ,eol:¬
+
+" Line number column displays relative distance of lines from the current line
+set relativenumber
+
+" Line wrapping
+"set wrap
+"set formatoptions=qrn1
+set colorcolumn=110
+
+" Clipboard compatibility if vim version supports it
+set clipboard=unnamedplus
