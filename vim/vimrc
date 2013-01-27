@@ -54,3 +54,7 @@ set colorcolumn=110
 
 " Clipboard compatibility if vim version supports it
 set clipboard=unnamedplus
+set pastetoggle=<F12>
+
+" Tabbing
+set ts=4
