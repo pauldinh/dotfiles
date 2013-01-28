@@ -1,0 +1,9 @@
+# generated files
+*.*~
+*.pyc
+tags
+
+# generated directories
+bin/
+build/
+lib/
