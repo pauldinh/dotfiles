@@ -40,9 +40,9 @@ set incsearch
 set scrolloff=8
 
 " Show tabs/trailing spaces visually different from other spaces
-"set listchars=tab:>-,trail:_ list 
-set list
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:>-,trail:_ list
+"set list
+"set listchars=tab:▸\ ,eol:¬
 
 " Line number column displays relative distance of lines from the current line
 set relativenumber
