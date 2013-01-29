@@ -40,16 +40,14 @@ set incsearch
 set scrolloff=8
 
 " Show tabs/trailing spaces visually different from other spaces
-set listchars=tab:>-,trail:_ list
-"set list
+"set listchars=tab:>-,trail:_ list
 "set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,trail:_ list
 
 " Line number column displays relative distance of lines from the current line
 set relativenumber
 
 " Line wrapping
-"set wrap
-"set formatoptions=qrn1
 set colorcolumn=110
 
 " Clipboard compatibility if vim version supports it
@@ -57,4 +55,11 @@ set clipboard=unnamedplus
 set pastetoggle=<F12>
 
 " Tabbing
-set ts=4
+set shiftwidth=4
+set tabstop=4
+
+" Allow backspace to erase previously entered characters
+set backspace=2
+
+" Set status bar
+set ruler
