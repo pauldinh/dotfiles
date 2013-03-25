@@ -1,3 +1,5 @@
+[[ -r ~/.bashrc ]] && . ~/.bashrc
+
 # From: https://pintsize.jsc.nasa.gov/drc-software/drc_common/blobs/develop/scripts/util-git.sh
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 if [ -d $GITAWAREPROMPT ]
