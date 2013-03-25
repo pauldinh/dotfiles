@@ -1,0 +1,139 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_darkness = 0.88
+    background_type = transparent
+    cursor_color = "#eee8d5"
+    foreground_color = "#eee8d5"
+    background_color = "#002b36"
+  [[solarized-dark]]
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_darkness = 0.88
+    background_type = transparent
+    background_color = "#002b36"
+    cursor_color = "#eee8d5"
+    foreground_color = "#eee8d5"
+  [[solarized-light]]
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_color = "#eee8d5"
+    cursor_color = "#002b36"
+    foreground_color = "#002b36"
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+  [[ros]]
+    [[[terminal3]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child2
+    [[[terminal4]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child2
+    [[[terminal7]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child5
+    [[[terminal6]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child5
+    [[[child12]]]
+      type = VPaned
+      order = 1
+      parent = child8
+    [[[child16]]]
+      type = VPaned
+      order = 0
+      parent = child15
+    [[[child15]]]
+      type = HPaned
+      order = 3
+      parent = child1
+    [[[child19]]]
+      type = VPaned
+      order = 1
+      parent = child15
+    [[[terminal11]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child9
+    [[[terminal10]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child9
+    [[[terminal13]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child12
+    [[[terminal14]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child12
+    [[[terminal17]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child16
+    [[[terminal18]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child16
+    [[[child0]]]
+      type = Window
+      order = 0
+      parent = ""
+      size = 1855, 1056
+    [[[child1]]]
+      labels = roscore, commander, datastore, marker templates, rviz
+      type = Notebook
+      order = 0
+      parent = child0
+    [[[child2]]]
+      type = HPaned
+      order = 0
+      parent = child1
+    [[[child5]]]
+      type = HPaned
+      order = 1
+      parent = child1
+    [[[child8]]]
+      type = HPaned
+      order = 2
+      parent = child1
+    [[[child9]]]
+      type = VPaned
+      order = 0
+      parent = child8
+    [[[terminal20]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child19
+    [[[terminal21]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child19
+    [[[terminal22]]]
+      profile = default
+      type = Terminal
+      order = 4
+      parent = child1
+[plugins]
