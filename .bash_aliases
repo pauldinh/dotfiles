@@ -8,7 +8,7 @@ then
     export PS1="\[$bldgrn\]\u@\h\[$bldblu\] \w\[$bldylw\]\$git_branch\[$bldred\]\$git_dirty\[$txtrst\]\$ "
 fi
 
-alias psg='ps -aux | grep'
+alias psg='ps aux | grep'
 alias die='kill -9'
 alias sagi='sudo apt-get install'
 alias sagr='sudo apt-get remove'
