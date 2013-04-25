@@ -2,6 +2,9 @@
 *.*~
 *.pyc
 tags
+*.so
+*.dblite
+*.os
 
 # generated directories
 bin/
