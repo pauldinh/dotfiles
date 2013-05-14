@@ -44,29 +44,33 @@
     [[[terminal7]]]
       profile = default
       type = Terminal
-      order = 1
-      parent = child5
-    [[[terminal6]]]
+      order = 0
+      parent = child6
+    [[[terminal8]]]
       profile = default
       type = Terminal
-      order = 0
-      parent = child5
+      order = 1
+      parent = child6
     [[[child12]]]
+      position = 925
+      type = HPaned
+      order = 2
+      parent = child1
+    [[[child13]]]
+      position = 509
+      type = VPaned
+      order = 0
+      parent = child12
+    [[[child16]]]
+      position = 509
       type = VPaned
       order = 1
-      parent = child8
-    [[[child16]]]
-      type = VPaned
-      order = 0
-      parent = child15
-    [[[child15]]]
+      parent = child12
+    [[[child19]]]
+      position = 925
       type = HPaned
       order = 3
       parent = child1
-    [[[child19]]]
-      type = VPaned
-      order = 1
-      parent = child15
     [[[terminal11]]]
       profile = default
       type = Terminal
@@ -77,16 +81,16 @@
       type = Terminal
       order = 0
       parent = child9
-    [[[terminal13]]]
-      profile = default
-      type = Terminal
-      order = 0
-      parent = child12
-    [[[terminal14]]]
+    [[[terminal15]]]
       profile = default
       type = Terminal
       order = 1
-      parent = child12
+      parent = child13
+    [[[terminal14]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child13
     [[[terminal17]]]
       profile = default
       type = Terminal
@@ -98,6 +102,7 @@
       order = 1
       parent = child16
     [[[child0]]]
+      position = 1985:24
       type = Window
       order = 0
       parent = ""
@@ -108,34 +113,68 @@
       order = 0
       parent = child0
     [[[child2]]]
+      position = 925
       type = HPaned
       order = 0
       parent = child1
     [[[child5]]]
+      position = 925
       type = HPaned
       order = 1
       parent = child1
-    [[[child8]]]
-      type = HPaned
-      order = 2
-      parent = child1
-    [[[child9]]]
+    [[[child6]]]
+      position = 509
       type = VPaned
       order = 0
-      parent = child8
-    [[[terminal20]]]
+      parent = child5
+    [[[child9]]]
+      position = 509
+      type = VPaned
+      order = 1
+      parent = child5
+    [[[terminal24]]]
       profile = default
       type = Terminal
       order = 0
-      parent = child19
+      parent = child23
+    [[[terminal25]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child23
+    [[[terminal27]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child26
     [[[terminal21]]]
       profile = default
       type = Terminal
-      order = 1
-      parent = child19
+      order = 0
+      parent = child20
     [[[terminal22]]]
       profile = default
       type = Terminal
+      order = 1
+      parent = child20
+    [[[child23]]]
+      position = 509
+      type = VPaned
+      order = 1
+      parent = child19
+    [[[child20]]]
+      position = 509
+      type = VPaned
+      order = 0
+      parent = child19
+    [[[terminal28]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child26
+    [[[child26]]]
+      position = 925
+      type = HPaned
       order = 4
       parent = child1
 [plugins]
