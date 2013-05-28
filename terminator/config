@@ -31,6 +31,11 @@
       type = Window
       parent = ""
   [[ros]]
+    [[[terminal30]]]
+      profile = default
+      type = Terminal
+      order = 0
+      parent = child29
     [[[terminal3]]]
       profile = default
       type = Terminal
@@ -66,16 +71,16 @@
       type = VPaned
       order = 1
       parent = child12
-    [[[terminal32]]]
-      profile = default
-      type = Terminal
-      order = 1
-      parent = child30
-    [[[terminal31]]]
+    [[[terminal33]]]
       profile = default
       type = Terminal
       order = 0
-      parent = child30
+      parent = child32
+    [[[terminal31]]]
+      profile = default
+      type = Terminal
+      order = 1
+      parent = child29
     [[[child19]]]
       position = 925
       type = HPaned
@@ -84,13 +89,13 @@
     [[[terminal35]]]
       profile = default
       type = Terminal
-      order = 1
-      parent = child33
+      order = 7
+      parent = child1
     [[[terminal34]]]
       profile = default
       type = Terminal
-      order = 0
-      parent = child33
+      order = 1
+      parent = child32
     [[[terminal11]]]
       profile = default
       type = Terminal
@@ -116,29 +121,24 @@
       type = Terminal
       order = 0
       parent = child16
-    [[[child30]]]
-      position = 554
-      type = VPaned
-      order = 0
-      parent = child29
     [[[terminal18]]]
       profile = default
       type = Terminal
       order = 1
       parent = child16
-    [[[child33]]]
-      position = 554
-      type = VPaned
-      order = 1
-      parent = child29
+    [[[child32]]]
+      position = 927
+      type = HPaned
+      order = 6
+      parent = child1
     [[[child0]]]
-      position = 1920:27
+      position = 1985:24
       type = Window
       order = 0
       parent = ""
-      size = 1920, 1144
+      size = 1855, 1176
     [[[child1]]]
-      labels = roscore, commander, datastore, marker templates, rviz, gazebo sucks
+      labels = roscore, commander, datastore, marker templates, rviz, footstep planner, gazebo / arbiter, record
       type = Notebook
       order = 0
       parent = child0
@@ -173,7 +173,7 @@
       order = 1
       parent = child23
     [[[child29]]]
-      position = 958
+      position = 925
       type = HPaned
       order = 5
       parent = child1
@@ -193,12 +193,12 @@
       order = 1
       parent = child20
     [[[child23]]]
-      position = 509
+      position = 557
       type = VPaned
       order = 1
       parent = child19
     [[[child20]]]
-      position = 509
+      position = 557
       type = VPaned
       order = 0
       parent = child19
@@ -208,7 +208,7 @@
       order = 1
       parent = child26
     [[[child26]]]
-      position = 958
+      position = 918
       type = HPaned
       order = 4
       parent = child1
