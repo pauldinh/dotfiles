@@ -57,17 +57,17 @@
       order = 1
       parent = child6
     [[[child12]]]
-      position = 925
+      position = 736
       type = HPaned
       order = 2
       parent = child1
     [[[child13]]]
-      position = 509
+      position = 351
       type = VPaned
       order = 0
       parent = child12
     [[[child16]]]
-      position = 509
+      position = 351
       type = VPaned
       order = 1
       parent = child12
@@ -82,7 +82,7 @@
       order = 1
       parent = child29
     [[[child19]]]
-      position = 925
+      position = 736
       type = HPaned
       order = 3
       parent = child1
@@ -127,38 +127,38 @@
       order = 1
       parent = child16
     [[[child32]]]
-      position = 927
+      position = 739
       type = HPaned
       order = 6
       parent = child1
     [[[child0]]]
-      position = 1985:24
+      position = 229:157
       type = Window
       order = 0
       parent = ""
-      size = 1855, 1176
+      size = 1481, 811
     [[[child1]]]
       labels = roscore, commander, datastore, marker templates, rviz, footstep planner, gazebo / arbiter, record
       type = Notebook
       order = 0
       parent = child0
     [[[child2]]]
-      position = 925
+      position = 739
       type = HPaned
       order = 0
       parent = child1
     [[[child5]]]
-      position = 925
+      position = 736
       type = HPaned
       order = 1
       parent = child1
     [[[child6]]]
-      position = 509
+      position = 351
       type = VPaned
       order = 0
       parent = child5
     [[[child9]]]
-      position = 509
+      position = 351
       type = VPaned
       order = 1
       parent = child5
@@ -173,7 +173,7 @@
       order = 1
       parent = child23
     [[[child29]]]
-      position = 925
+      position = 739
       type = HPaned
       order = 5
       parent = child1
@@ -193,12 +193,12 @@
       order = 1
       parent = child20
     [[[child23]]]
-      position = 557
+      position = 351
       type = VPaned
       order = 1
       parent = child19
     [[[child20]]]
-      position = 557
+      position = 351
       type = VPaned
       order = 0
       parent = child19
@@ -208,7 +208,7 @@
       order = 1
       parent = child26
     [[[child26]]]
-      position = 918
+      position = 739
       type = HPaned
       order = 4
       parent = child1
