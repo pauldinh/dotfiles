@@ -5,6 +5,7 @@ tags
 *.so
 *.dblite
 *.os
+*.properties
 
 # generated directories
 bin/
