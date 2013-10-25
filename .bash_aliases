@@ -27,3 +27,6 @@ alias psg='ps aux | grep'
 alias k9='kill -9'
 alias update='sudo apt-get update'
 alias upgrade='sudo apt-get upgrade'
+alias gb="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)' refs/remotes"
+alias ggg="GIT_AUTHOR_NAME='Paul Dinh' GIT_AUTHOR_EMAIL='paul.dinh@gmail.com' git gui"
+alias pport="sudo netstat -lpn | grep"
