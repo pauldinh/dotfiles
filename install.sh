@@ -12,6 +12,7 @@ then
 	mv ~/.bash_aliases ~/.bash_aliases.backup
         mv ~/.kde/share/apps/konsole/DarkPastels.colorscheme ~/.kde/share/apps/konsole/DarkPastels.colorscheme.backup
         mv ~/.kde/share/apps/konsole/Shell.profile ~/.kde/share/apps/konsole/Shell.profile.backup
+	mv ~/.tmux.conf ~/.tmux.conf.backup
 
 	echo ''
 	# create symlinks
@@ -34,4 +35,7 @@ then
 	echo 'Created symlink ~/.kde/share/apps/konsole/DarkPastels.colorscheme -> '${PWD}'/konsole/DarkPastels.colorscheme'
         ln -s ${PWD}/konsole/Shell.profile ~/.kde/share/apps/konsole/Shell.profile
 	echo 'Created symlink ~/.kde/share/apps/konsole/Shell.profile -> '${PWD}'/konsole/Shell.profile'
+	ln -s ${PWD}/tmux/.tmux.conf ~/.tmux.conf
+	echo 'Created symlink ~/.tmux.conf -> '${PWD}'/tmux/.tmux.conf'
+
 fi
