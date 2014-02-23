@@ -10,6 +10,8 @@ then
 	mv ~/.gitignore_global ~/.gitignore_global.backup
 	mv ~/.config/terminator/config ~/.config/terminator/config.backup
 	mv ~/.bash_aliases ~/.bash_aliases.backup
+        mv ~/.kde/share/apps/konsole/DarkPastels.colorscheme ~/.kde/share/apps/konsole/DarkPastels.colorscheme.backup
+        mv ~/.kde/share/apps/konsole/Shell.profile ~/.kde/share/apps/konsole/Shell.profile.backup
 
 	echo ''
 	# create symlinks
@@ -28,4 +30,8 @@ then
 	echo 'Created symlink ~/.bash_aliases -> '${PWD}'/.bash_aliases'
 	ln -s ${PWD}/.bash_profile ~/.bash_profile
 	echo 'Created symlink ~/.bash_profile -> '${PWD}'/.bash_profile'
+        ln -s ${PWD}/konsole/DarkPastels.colorscheme ~/.kde/share/apps/konsole/DarkPastels.colorscheme
+	echo 'Created symlink ~/.kde/share/apps/konsole/DarkPastels.colorscheme -> '${PWD}'/konsole/DarkPastels.colorscheme'
+        ln -s ${PWD}/konsole/Shell.profile ~/.kde/share/apps/konsole/Shell.profile
+	echo 'Created symlink ~/.kde/share/apps/konsole/Shell.profile -> '${PWD}'/konsole/Shell.profile'
 fi
