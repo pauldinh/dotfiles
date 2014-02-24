@@ -1,0 +1,8 @@
+###
+# CTRL-B then SHIFT + P = Awesome layout!
+###
+split-window -h
+split-window
+split-window -h
+split-window
+selectp -t 0
