@@ -31,3 +31,4 @@ alias gb="git for-each-ref --sort=-committerdate --format='%(committerdate:short
 alias ggg="GIT_AUTHOR_NAME='Paul Dinh' GIT_AUTHOR_EMAIL='paul.dinh@gmail.com' git gui"
 alias pport="sudo netstat -lpn | grep"
 alias gp='!git remote update -p; git merge --ff-only @{u}'
+alias gitlol='git log --graph --pretty=oneline --abbrev-commit'
