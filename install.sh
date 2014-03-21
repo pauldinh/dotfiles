@@ -5,8 +5,8 @@ read -p 'Continue (y/n)? ' -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	# remove previous settings
-	#rm ~/.vimrc
-	#rm -rf ~/.vim
+	rm ~/.vimrc
+	rm -rf ~/.vim
 	mv ~/.gitignore_global ~/.gitignore_global.backup
 	mv ~/.config/terminator/config ~/.config/terminator/config.backup
 	mv ~/.bash_aliases ~/.bash_aliases.backup
@@ -16,11 +16,11 @@ then
 	mv ~/.tmux/dev ~/.tmux/dev.backup
 
 	echo ''
-	# create symlinks
-	#ln -s ${PWD}/vim/vimrc ~/.vimrc;
-	#echo 'Created symlink ~/.vimrc -> '${PWD}'/vim/vimrc'
-	#ln -s ${PWD}/vim ~/.vim;
-	#echo 'Created symlink ~/.vim -> '${PWD}'/vim/'
+	 create symlinks
+	ln -s ${PWD}/vim/vimrc ~/.vimrc;
+	echo 'Created symlink ~/.vimrc -> '${PWD}'/vim/vimrc'
+	ln -s ${PWD}/vim ~/.vim;
+	echo 'Created symlink ~/.vim -> '${PWD}'/vim/'
 	ln -s ${PWD}/.gitignore_global ~/.gitignore_global;
 	echo 'Created symlink ~/.gitignore_global -> '${PWD}'/.gitignore_global'
 	git config --global core.excludesfile ~/.gitignore_global
