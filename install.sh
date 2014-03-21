@@ -42,4 +42,6 @@ then
 	ln -s ${PWD}/tmux/dev ~/.tmux/dev
 	echo 'Created symlink ~/tmux/dev -> '${PWD}'/tmux/dev'
 
+	# tmux
+	mkdir ~/.tmux-layouts
 fi

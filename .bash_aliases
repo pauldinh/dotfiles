@@ -32,3 +32,11 @@ alias ggg="GIT_AUTHOR_NAME='Paul Dinh' GIT_AUTHOR_EMAIL='paul.dinh@gmail.com' gi
 alias pport="sudo netstat -lpn | grep"
 alias gp='git remote update -p; git merge --ff-only @{u}'
 alias gitlol='git log --graph --pretty=oneline --abbrev-commit'
+
+# tmux
+export PATH=$HOME/.tmuxifier/bin:$PATH
+eval "$(tmuxifier init -)"
+export TMUXIFIER_LAYOUT_PATH=$HOME/.tmux-layouts
+export EDITOR=vim
+alias tml='tmuxifier load-session'
+alias tmks='tmux kill-server'
