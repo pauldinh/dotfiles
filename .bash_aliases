@@ -41,3 +41,6 @@ export TMUXIFIER_LAYOUT_PATH=$HOME/.tmux-layouts
 export EDITOR=vim
 alias tml='tmuxifier load-session'
 alias tmks='tmux kill-server'
+alias tmls='tmux ls'
+alias tmd='tmux detach'
+alias tma='tmux attach -t'
