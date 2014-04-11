@@ -44,3 +44,6 @@ alias tmks='tmux kill-server'
 alias tmls='tmux ls'
 alias tmd='tmux detach'
 alias tma='tmux attach -t'
+
+# Anaconda python
+alias apython='$HOME/anaconda/bin/python'
