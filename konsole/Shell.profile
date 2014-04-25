@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=DarkPastels
-Font=Inconsolata,10,-1,5,50,0,0,0,0,0
+Font=Inconsolata,12,-1,5,50,0,0,0,0,0
 
 [Cursor Options]
 CursorShape=1
