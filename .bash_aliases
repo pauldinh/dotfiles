@@ -33,7 +33,7 @@ alias pport="sudo netstat -lpn | grep"
 alias gp='git remote update -p; git merge --ff-only @{u}'
 alias gitlol='git log --graph --pretty=oneline --abbrev-commit'
 alias vupdate='sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/valkyrie.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"'
-alias clog='cat /var/log/syslog'
+alias clog='tail -f /var/log/syslog'
 
 # tmux
 export PATH=$HOME/.tmuxifier/bin:$PATH
