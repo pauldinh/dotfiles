@@ -3,7 +3,7 @@ ColorScheme=DarkPastels
 Font=Inconsolata,12,-1,5,50,0,0,0,0,0
 
 [Cursor Options]
-CursorShape=1
+CursorShape=0
 
 [General]
 Icon=utilities-terminal
@@ -21,3 +21,4 @@ ScrollBarPosition=2
 
 [Terminal Features]
 BidiRenderingEnabled=true
+BlinkingCursorEnabled=true
