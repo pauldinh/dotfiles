@@ -41,6 +41,7 @@ eval "$(tmuxifier init -)"
 export TMUXIFIER_LAYOUT_PATH=$HOME/.tmux-layouts
 export EDITOR=vim
 alias tml='tmuxifier load-session'
+alias tmk='tmux kill-session -t'
 alias tmks='tmux kill-server'
 alias tmls='tmux ls'
 alias tmd='tmux detach'
