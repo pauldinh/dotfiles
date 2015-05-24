@@ -1,65 +1,43 @@
-" Disable vi compatibility
-set nocompatible
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" Initialize Pathogen to load all plugins in ~/.vim/bundle
-" ~/.vim/autoload/pathogen.vim
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-filetype on
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
-" Code Folding
-" za inside of a method to fold/unfold
-set foldmethod=indent
-set foldlevel=99
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
 
-" TaskList will parse the current file for TODO or FIXME
-" \td to open task list, 'q' to close
-map <leader>td <Plug>TaskList
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" Plugin 'tpope/vim-fugitive'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+" Plugin 'user/L9', {'name': 'newL9'}
+Plugin 'Valloric/YouCompleteMe'
 
-" Revision History
-" \g to toggle on and off
-map <leader>g :GundoToggle<CR>
-
-" Syntax Highlighting and Validation
-" pyflakes will notify unused imports, among other things
-syntax on
-filetype on
-filetype plugin indent on
-let g:pyflakes_use_quickfix = 0
-
-" Pep8 - http://www.python.org/dev/peps/pep-0008/
-" \8 to jump to each pep8 violation
-let g:pep8_map='<leader>8'
-
-" Search and Replace
-" http://stackoverflow.com/questions/1276403/simple-vim-commands-you-wish-youd-known-earlier
-set incsearch
-
-" Force cursor to always stay in middle of the screen
-set scrolloff=8
-
-" Show tabs/trailing spaces visually different from other spaces
-"set listchars=tab:>-,trail:_ list
-"set listchars=tab:▸\ ,eol:¬
-set listchars=tab:▸\ ,trail:_ list
-
-" Line number column displays relative distance of lines from the current line
-set relativenumber
-
-" Line wrapping
-set colorcolumn=110
-
-" Clipboard compatibility if vim version supports it
-set clipboard=unnamedplus
-set pastetoggle=<F12>
-
-" Tabbing
-set shiftwidth=4
-set tabstop=4
-
-" Allow backspace to erase previously entered characters
-set backspace=2
-
-" Set status bar
-set ruler
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
