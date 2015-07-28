@@ -49,6 +49,7 @@ alias tma='tmux attach -t'
 
 # Anaconda python
 alias apython='$HOME/anaconda/bin/python'
+alias ipython='$HOME/anaconda/bin/ipython'
 
 # OpenDDS
 alias sdds='source $HOME/OpenDDS/DDS/setenv.sh'
