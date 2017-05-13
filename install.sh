@@ -28,7 +28,9 @@ then
 	mkdir -p ~/.tmux
 	ln -s ${PWD}/tmux/dev ~/.tmux/dev
 	echo 'Created symlink ~/tmux/dev -> '${PWD}'/tmux/dev'
+	ln -s ${PWD}/vim/vimrc ~/.vimrc
+	echo 'Created symlink ~/.vimrc -> '${PWD}'/vim/vimrc'
 
 	# tmux
-	mkdir ~/.tmux-layouts
+	mkdir -p ~/.tmux-layouts
 fi
