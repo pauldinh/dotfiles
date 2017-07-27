@@ -34,6 +34,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Install L9 and avoid a Naming conflict if you've already installed a
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
+"
+Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -55,3 +57,5 @@ filetype plugin indent on    " required
 "let g:ycm_confirm_extra_conf = 0
 
 set number
+set nowrap
+
