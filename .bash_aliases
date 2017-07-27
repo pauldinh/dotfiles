@@ -34,6 +34,7 @@ alias gp='git remote update -p; git merge --ff-only @{u}'
 alias gitlol='git log --graph --pretty=oneline --abbrev-commit'
 alias vupdate='sudo apt-get update -o Dir::Etc::sourcelist="sources.list.d/valkyrie.list" -o Dir::Etc::sourceparts="-" -o APT::Get::List-Cleanup="0"'
 alias clog='tail -f /var/log/syslog'
+alias gbclean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
 # tmux
 export PATH=$HOME/.tmuxifier/bin:$PATH
@@ -53,3 +54,23 @@ alias ipython='$HOME/anaconda/bin/ipython'
 
 # OpenDDS
 alias sdds='source $HOME/OpenDDS/DDS/setenv.sh'
+
+# ros
+alias sk='source /opt/ros/kinetic/setup.bash'
+alias sl='source ~/lj_ws/install/setup.bash'
+
+function cb() {
+	catkin build $1
+}
+
+function ct() {
+	catkin run_tests --no-deps $1 && catkin test --no-deps $1
+}
+
+function ccov() {
+	catkin build --no-deps $1 -DCMAKE_BUILD_TYPE=Coverage --make-args run_coverage_$1
+}
+
+function cfor() {
+	catkin build --no-deps $1 --make-args format_code_$1
+}
