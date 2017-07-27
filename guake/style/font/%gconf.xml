@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="style" mtime="1501139598" type="string">
+		<stringvalue>Inconsolata Medium 11</stringvalue>
+	</entry>
+	<entry name="palette_name" mtime="1501171041" type="string">
+		<stringvalue>Neutron</stringvalue>
+	</entry>
+	<entry name="palette" mtime="1501171041" type="string">
+		<stringvalue>#222225252B2B:#B5B53F3F3636:#5A5AB9B97777:#DDDDB5B56666:#6A6A7B7B9292:#A3A379799D9D:#3F3F9393A8A8:#E6E6E8E8EEEE:#222225252B2B:#B5B53F3F3636:#5A5AB9B97777:#DDDDB5B56666:#6A6A7B7B9292:#A3A379799D9D:#3F3F9393A8A8:#EBEBEDEDF2F2:#E6E6E8E8EEEE:#1B1B1D1D2222</stringvalue>
+	</entry>
+	<entry name="allow_bold" mtime="1501171041" type="bool" value="true"/>
+</gconf>
