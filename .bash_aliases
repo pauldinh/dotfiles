@@ -13,6 +13,15 @@ function marks {
     ls -l "$MARKPATH" | sed 's/  / /g' | cut -d' ' -f9- | sed 's/ -/\t-/g' && echo
 }
 
+_completemarks() {
+  local curw=${COMP_WORDS[COMP_CWORD]}
+  local wordlist=$(find $MARKPATH -type l -printf "%f\n")
+  COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+  return 0
+}
+
+complete -F _completemarks jump unmark
+
 # From: https://pintsize.jsc.nasa.gov/drc-software/drc_common/blobs/develop/scripts/util-git.sh
 export GITAWAREPROMPT=~/.bash/git-aware-prompt
 if [ -d $GITAWAREPROMPT ]
@@ -22,6 +31,8 @@ then
     source $GITAWAREPROMPT/main.sh
     export PS1="\[$bldgrn\]\u@\h\[$bldblu\]:\w\[$bldylw\]\$git_branch\[$bldred\]\$git_dirty\[$txtrst\]\$ "
 fi
+
+# TODO: actual aliases start here, clean the above up (and below)
 
 alias psg='ps aux | grep'
 alias k9='kill -9'
@@ -57,7 +68,10 @@ alias sdds='source $HOME/OpenDDS/DDS/setenv.sh'
 
 # ros
 alias sk='source /opt/ros/kinetic/setup.bash'
-alias sl='source ~/lj_ws/install/setup.bash'
+
+function ce() {
+	catkin config --install --extend $1
+}
 
 function cb() {
 	catkin build $1
