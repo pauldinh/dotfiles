@@ -11,7 +11,6 @@ then
     mv ~/.tmux.conf ~/.tmux.conf.backup
     mv ~/.tmux/dev ~/.tmux/dev.backup
     mv ~/.vimrc ~/.vimrc.backup
-    mv ~/.gconf/apps/guake ~/.gconf/apps/guake.backup
 
     echo ''
     ln -s ${PWD}/.gitignore_global ~/.gitignore_global;
@@ -32,8 +31,6 @@ then
     echo 'Created symlink ~/tmux/dev -> '${PWD}'/tmux/dev'
     ln -s ${PWD}/vim/vimrc ~/.vimrc
     echo 'Created symlink ~/.vimrc -> '${PWD}'/vim/vimrc'
-	ln -s ${PWD}/guake ~/.gconf/apps/guake
-    echo 'Created symlink ~/.gconf/apps/guake -> '${PWD}'/guake'
 
     # tmux
     mkdir -p ~/.tmux-layouts
