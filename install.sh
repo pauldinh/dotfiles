@@ -43,6 +43,9 @@ then
     ln -s ${PWD}/termite/config ~/.config/termite/config
     echo 'Created symlink ~/.config/termite/config -> '${PWD}'/termite/config'
 
+    ln -s ${PWD}/i3/i3status.conf ~/.i3status.conf
+    echo 'Created symlink ~/.i3status.conf -> '${PWD}'/i3/i3status.conf'
+
     # tmux
     mkdir -p ~/.tmux-layouts
 fi
