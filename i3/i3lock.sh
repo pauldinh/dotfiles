@@ -17,4 +17,4 @@
 #	   --insidewrongcolor=131313c0 \
 #	   --ringwrongcolor=ee3333ff
 
-i3lock -i ~/dotfiles/i3/synthwave-small.png
+i3lock -i ~/Dropbox/i3/synthwave-small.png

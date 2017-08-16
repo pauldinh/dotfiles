@@ -223,9 +223,7 @@ exec --no-startup-id unclutter -idle 1
 focus_follows_mouse no
 
 # Background
-# exec --no-startup-id feh --bg-scale ~/pictures/background/synthwave1.jpg
-#exec --no-startup-id feh --bg-scale ~/dotfiles/synthwave.jpg
-exec --no-startup-id feh --bg-scale ~/dotfiles/i3/synthwave.png
+exec --no-startup-id feh --bg-scale ~/Dropbox/i3/synthwave.png
 
 # Compton
 exec --no-startup-id compton --vsync opengl --no-fading-openclose
