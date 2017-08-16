@@ -1,0 +1,6 @@
+- https://github.com/chrjguill/i3lock-color
+- https://github.com/Airblader/i3
+- https://github.com/thestinger/vte-ng
+- https://github.com/thestinger/termite/
+- https://github.com/jaagr/polybar
+- compton (apt)
