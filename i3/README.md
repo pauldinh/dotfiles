@@ -4,3 +4,4 @@
 - https://github.com/thestinger/termite/
 - https://github.com/jaagr/polybar
 - compton (apt)
+- https://github.com/powerline/fonts
