@@ -51,7 +51,8 @@ font-1 = Hack:pixelsize=32;2
 
 modules-left = i3 arrow0 i3index arrow
 modules-center = music
-modules-right = arrow8 xkeyboard arrow7 memory arrow6 cpu arrow7 battery arrow6 volume arrow7 date arrow6
+modules-right = arrow8 arrow7 memory arrow6 cpu arrow7 battery arrow6 volume arrow7 date arrow6
+;modules-right = arrow8 memory arrow6 cpu arrow7 battery arrow6 volume arrow7 date arrow6
 
 tray-position = right
 tray-background = ${colors.background}
@@ -146,19 +147,19 @@ content-background = ${colors.trans}
 ;	M O D U L E S
 ;-------------------------------------------------------------------------------
 
-;[module/xkeyboard]
-;type = internal/xkeyboard
-;blacklist-0 = num lock
-;
-;format-prefix = " KEY "
-;format-prefix-font = 1
-;format-prefix-foreground = ${colors.blue}
-;format-prefix-background = ${colors.background}
-;
-;label-layout = %layout%
-;label-layout-font = 1
-;label-layout-foreground = ${colors.blue}
-;label-layout-background = ${colors.background}
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " KEY "
+format-prefix-font = 1
+format-prefix-foreground = ${colors.blue}
+format-prefix-background = ${colors.background}
+
+label-layout = %layout%
+label-layout-font = 1
+label-layout-foreground = ${colors.blue}
+label-layout-background = ${colors.background}
 
 ; label-indicator-padding = 2
 ; label-indicator-margin = 1
@@ -318,7 +319,7 @@ ramp-volume-3-background = ${colors.background}
 [module/battery]
 interval = 5
 type = internal/battery
-battery = BAT0
+battery = BAT1
 adapter = AC
 full-at = 100
 
