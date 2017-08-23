@@ -57,8 +57,15 @@ filetype plugin indent on    " required
 "let g:ycm_confirm_extra_conf = 0
 
 set number
+set relativenumber
 set nowrap
 
 "syntax on
 "colorscheme space-vim-dark
 
+set clipboard=unnamedplus
+set colorcolumn=80
+set list
+set listchars=tab:▸\ ,trail:_ list
+set ruler
+set so=20
