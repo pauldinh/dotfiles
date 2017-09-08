@@ -69,3 +69,6 @@ set list
 set listchars=tab:▸\ ,trail:_ list
 set ruler
 set so=20
+
+" clear last search highlighting
+map <Space> :noh<cr>

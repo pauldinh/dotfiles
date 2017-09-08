@@ -49,14 +49,17 @@ border-color = #131313
 font-0 = Hack:pixelsize=10:weight=bold;2
 font-1 = Hack:pixelsize=32;2
 
-modules-left = i3 arrow0 i3index arrow
-modules-center = music
+;modules-left = i3 arrow0 i3index arrow
+modules-left = i3 arrow0 arrow
+;modules-center = music
 modules-right = arrow8 arrow7 memory arrow6 cpu arrow7 battery arrow6 volume arrow7 date arrow6
 ;modules-right = arrow8 memory arrow6 cpu arrow7 battery arrow6 volume arrow7 date arrow6
 
 tray-position = right
 tray-background = ${colors.background}
 tray-padding = 4
+
+monitor = ${env:MONITOR:fallback-value}
 
 ;-------------------------------------------------------------------------------
 ;	D E C O R A T I O N S
@@ -189,19 +192,18 @@ label-urgent =
 
 [module/i3]
 type = internal/i3
-format = <label-state><label-mode>
-
+format = <label-state>
 index-sort = true
-enable-click = false
-enable-scroll = false
-
-ws-icon-0 = 0;*
-ws-icon-default = ○
+wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-pin-workspaces = true
+;pin-workspaces = true
+
+;ws-icon-0 = 0;*
+;ws-icon-default = ○
 
 label-mode = " %mode% "
+label-mode-padding = 2
 label-mode-foreground = ${colors.red}
 label-mode-background = ${colors.background}
 
@@ -211,14 +213,21 @@ label-focused-foreground = ${colors.pink}
 label-focused-background = ${colors.background}
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = " %icon% "
-label-unfocused-foreground = ${colors.foreground}
-label-unfocused-background = ${colors.background}
+;label-unfocused = " %icon% "
+;label-unfocused-foreground = ${colors.foreground}
+;label-unfocused-background = ${colors.background}
+
+; visible = Active workspace on unfocused monitor
+;label-visible = %index%
+;label-visible-background = ${self.label-focused-background}
+;label-visible-underline = ${self.label-focused-underline}
+;label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = " ● "
 label-urgent-foreground = ${colors.red}
 label-urgent-background = ${colors.background}
+
 
 [module/cpu]
 type = internal/cpu

@@ -29,8 +29,8 @@ then
     ln -s ${PWD}/tmux/dev ~/.tmux/dev
 
     ln -s ${PWD}/vim/vimrc ~/.vimrc
-	mkdir -p ~/.vim/colors
-	ln -s ${PWD}/vim/space-vim-dark.vim ~/.vim/colors/space-vim-dark.vim
+    mkdir -p ~/.vim/colors
+    ln -s ${PWD}/vim/space-vim-dark.vim ~/.vim/colors/space-vim-dark.vim
 
     mkdir -p ~/.config/termite
     ln -s ${PWD}/termite/config ~/.config/termite/config
@@ -41,8 +41,10 @@ then
 
     ln -s ${PWD}/compton/compton.conf ~/.config/compton.conf
 
-	mkdir -p ~/.config/polybar
+    mkdir -p ~/.config/polybar
     ln -s ${PWD}/polybar/config ~/.config/polybar/config
+    mkdir -p ~/.config/polybar
+    ln -s ${PWD}/polybar/launch.sh ~/.config/polybar/launch.sh
 
 
     # tmux
