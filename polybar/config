@@ -49,7 +49,9 @@ border-color = #131313
 font-0 = Hack:pixelsize=10:weight=bold;2
 font-1 = Hack:pixelsize=32;2
 
-modules-left = i3 arrow0 i3index arrow
+;modules-left = i3 arrow0 i3index arrow
+modules-left = i3 arrow0 arrow
+;modules-left = i3
 ;modules-center = music
 modules-right = arrow8 arrow7 battery arrow6 volume arrow7 date arrow6
 ;modules-right = arrow8 memory arrow6 cpu arrow7 battery arrow6 volume arrow7 date arrow6
@@ -57,6 +59,10 @@ modules-right = arrow8 arrow7 battery arrow6 volume arrow7 date arrow6
 tray-position = right
 tray-background = ${colors.background}
 tray-padding = 4
+
+; force polybar to show up on the laptop monitor
+; set $MONITOR=DP-1 in .bashrc or something
+;monitor = ${env:MONITOR:fallback-value}
 
 ;-------------------------------------------------------------------------------
 ;	D E C O R A T I O N S
@@ -187,38 +193,81 @@ label-focused-background = ${colors.pink}
 label-unfocused =
 label-urgent =
 
+;pin-workspaces = true
+
+#[module/i3]
+#type = internal/i3
+#format = <label-state><label-mode>
+#
+#index-sort = true
+#enable-click = false
+#enable-scroll = false
+#
+#;ws-icon-0 = 0;*
+#;ws-icon-default = ○
+#
+#; Only show workspaces on the same output as the bar
+#;pin-workspaces = true
+#
+#label-mode = " %mode% "
+#label-mode-foreground = ${colors.red}
+#label-mode-background = ${colors.background}
+#
+#; focused = Active workspace on focused monitor
+#label-focused = " ● "
+#label-focused-foreground = ${colors.pink}
+#label-focused-background = ${colors.background}
+#
+#; unfocused = Inactive workspace on any monitor
+#label-unfocused = " %icon% "
+#label-unfocused-foreground = ${colors.foreground}
+#label-unfocused-background = ${colors.background}
+#
+#; urgent = Workspace with urgency hint set
+#label-urgent = " ● "
+#label-urgent-foreground = ${colors.red}
+#label-urgent-background = ${colors.background}
+
 [module/i3]
 type = internal/i3
-format = <label-state><label-mode>
-
+format = <label-state> <label-mode>
 index-sort = true
-enable-click = false
-enable-scroll = false
-
-ws-icon-0 = 0;*
-ws-icon-default = ○
+wrapping-scroll = false
 
 ; Only show workspaces on the same output as the bar
-pin-workspaces = true
+;pin-workspaces = true
 
-label-mode = " %mode% "
+;label-mode-padding = 2
 label-mode-foreground = ${colors.red}
 label-mode-background = ${colors.background}
 
 ; focused = Active workspace on focused monitor
-label-focused = " ● "
+label-focused = %index%
 label-focused-foreground = ${colors.pink}
 label-focused-background = ${colors.background}
+;label-focused-underline = ${module/bspwm.label-focused-underline}
+;label-focused-padding = ${module/bspwm.label-focused-padding}
+label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = " %icon% "
+label-unfocused = %index%
 label-unfocused-foreground = ${colors.foreground}
 label-unfocused-background = ${colors.background}
+;label-unfocused-padding = ${module/bspwm.label-occupied-padding}
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+;label-visible = %index%
+;label-visible-background = ${self.label-focused-background}
+;label-visible-underline = ${self.label-focused-underline}
+;label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
-label-urgent = " ● "
-label-urgent-foreground = ${colors.red}
-label-urgent-background = ${colors.background}
+label-urgent = %index%
+label-urgent-foreground = {$colors.red}
+label-urgent-background = {$colors.background}
+;label-urgent-background = ${module/bspwm.label-urgent-background}
+;label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
 [module/cpu]
 type = internal/cpu

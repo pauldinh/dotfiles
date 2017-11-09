@@ -44,6 +44,7 @@ alias gp='git remote update -p; git merge --ff-only @{u}'
 alias gitlol='git log --graph --pretty=oneline --abbrev-commit'
 alias clog='tail -f /var/log/syslog'
 alias gbclean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias gr='git remote -v'
 
 # tmux
 export PATH=$HOME/.tmuxifier/bin:$PATH
@@ -59,6 +60,9 @@ alias tma='tmux attach -t'
 
 # ros
 alias sros='source /opt/ros/kinetic/setup.bash'
+
+# anaconda python
+alias sap='export PATH=~/anaconda3/bin:$PATH'
 
 # catkin laziness
 function ce() {

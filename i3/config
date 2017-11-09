@@ -239,7 +239,7 @@ exec --no-startup-id compton --vsync opengl --no-fading-openclose
 bindsym $mod+F2 exec ~/dotfiles/i3/i3lock.sh
 
 # Gaps
-smart_gaps on
-smart_borders on
-gaps inner 10
-gaps outer 3
+#smart_gaps on
+#smart_borders on
+#gaps inner 10
+#gaps outer 3

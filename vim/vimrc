@@ -39,11 +39,13 @@ Plugin 'terryma/vim-multiple-cursors'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
+"filetype plugin indent on    " required
+filetype plugin indent on
+" show existing tab with 4 spaces width      " To ignore plugin indent changes, instead use:
+set tabstop=4                                "filetype plugin on
+" when indenting with '>', use 4 spaces width"
+set shiftwidth=4                             " Brief help
+set expandtab
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
@@ -60,11 +62,14 @@ set number
 set relativenumber
 set nowrap
 
-"syntax on
+syntax on
+"au BufNewFile,BufRead *.launch set filetype=xml
+au BufReadPost *.launch set syntax=xml
+au BufReadPost *.inc set syntax=cpp
 "colorscheme space-vim-dark
 
 set clipboard=unnamedplus
-set colorcolumn=80
+"set colorcolumn=80
 set list
 set listchars=tab:▸\ ,trail:_ list
 set ruler
