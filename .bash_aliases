@@ -45,6 +45,7 @@ alias gitlol='git log --graph --pretty=oneline --abbrev-commit'
 alias clog='tail -f /var/log/syslog'
 alias gbclean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias gr='git remote -v'
+alias lookatthat='ls'
 
 # tmux
 export PATH=$HOME/.tmuxifier/bin:$PATH
@@ -66,22 +67,42 @@ alias sap='export PATH=~/anaconda3/bin:$PATH'
 
 # catkin laziness
 function ce() {
-	catkin config --install --extend $1
+    catkin config --install --extend $1
 }
 
 function cb() {
-	catkin build $1
+    catkin build $1
+}
+
+function cbe() {
+    catkin build --env-cache $1
+}
+
+function cbd() {
+    catkin build --profile debug $1
+}
+
+function cbde() {
+    catkin build --profile debug --cache-env $1
+}
+
+function cbr() {
+    catkin build --profile release $1
+}
+
+function cbre() {
+    catkin build --profile release --cache-env $1
 }
 
 function ct() {
-	catkin run_tests --no-deps $1 && catkin test --no-deps $1
+    catkin run_tests --no-deps $1 && catkin test --no-deps $1
 }
 
 function ccov() {
-	catkin build --no-deps $1 -DCMAKE_BUILD_TYPE=Coverage --make-args run_coverage_$1
+    catkin build --no-deps $1 -DCMAKE_BUILD_TYPE=Coverage --make-args run_coverage_$1
 }
 
 function cfor() {
-	catkin build --no-deps $1 --make-args format_code_$1
+    catkin build --no-deps $1 --make-args format_code_$1
 }
 
