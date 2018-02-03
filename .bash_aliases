@@ -106,3 +106,51 @@ function cfor() {
     catkin build --no-deps $1 --make-args format_code_$1
 }
 
+function ccd() {
+    catkin profile add --copy-active debug
+    catkin profile set debug
+    catkin config --log-space logs_debug
+    catkin config -b build_debug
+    catkin config -d devel_debug
+    catkin config -i install_debug
+    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Debug
+}
+
+function ccr() {
+    catkin profile add --copy-active release
+    catkin profile set release
+    catkin config --log-space logs_release
+    catkin config -b build_release
+    catkin config -d devel_release
+    catkin config -i install_release
+    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
+}
+
+alias ckc='catkin config'
+
+# vpn
+alias vpn='sudo openvpn --config ~/vpn/client.ovpn'
+
+# git-branch-clean
+function gbc() {
+    red=$'\e[1;31m'
+    grn=$'\e[1;32m'
+    yel=$'\e[1;33m'
+    blu=$'\e[1;34m'
+    mag=$'\e[1;35m'
+    cyn=$'\e[1;36m'
+    end=$'\e[0m'
+
+    for i in * ; do
+      if [ -d "$i" ]; then
+          reponame=$(basename "$i")
+          printf "+----------------------------------------------------+\n"
+          printf "| ${cyn}%-50s${end} |\n" $reponame
+          printf "+----------------------------------------------------+\n"
+          cd $reponame
+          git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
+          cd ..
+          printf "\n"
+      fi
+    done
+}
