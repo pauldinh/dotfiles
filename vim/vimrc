@@ -36,6 +36,8 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 "
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'liuchengxu/space-vim-dark'
+Plugin 'geoffharcourt/vim-matchit'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -77,3 +79,6 @@ set so=20
 
 " clear last search highlighting
 map <Space> :noh<cr>
+
+filetype indent on
+set smartindent
