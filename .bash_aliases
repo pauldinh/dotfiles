@@ -45,7 +45,6 @@ alias gitlol='git log --graph --pretty=oneline --abbrev-commit'
 alias clog='tail -f /var/log/syslog'
 alias gbclean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias gr='git remote -v'
-alias lookatthat='ls'
 
 # tmux
 export PATH=$HOME/.tmuxifier/bin:$PATH
@@ -153,4 +152,8 @@ function gbc() {
           printf "\n"
       fi
     done
+}
+
+function lookatthat() {
+    $1 | lolcat -F 0.3
 }
