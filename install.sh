@@ -46,6 +46,8 @@ then
     mkdir -p ~/.config/polybar
     ln -s ${PWD}/polybar/launch.sh ~/.config/polybar/launch.sh
 
+    mkdir -l ~/.config/alacritty
+    ln -s ${PWD}/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
     # tmux
     mkdir -p ~/.tmux-layouts
