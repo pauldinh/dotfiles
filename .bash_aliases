@@ -155,5 +155,5 @@ function gbc() {
 }
 
 function lookatthat() {
-    $1 | lolcat -F 0.3
+   ls -al | lolcat -F 0.3
 }
