@@ -122,7 +122,7 @@ function ccr() {
     catkin config -b build_release
     catkin config -d devel_release
     catkin config -i install_release
-    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
+    catkin config --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
 }
 
 alias ckc='catkin config'
@@ -157,3 +157,4 @@ function gbc() {
 function lookatthat() {
    ls -al | lolcat -F 0.3
 }
+
