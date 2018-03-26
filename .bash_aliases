@@ -125,6 +125,17 @@ function ccr() {
     catkin config --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
 }
 
+function ccrrr() {
+    catkin profile add --copy-active release
+    catkin profile set release
+    catkin config --log-space logs_release
+    catkin config -b build_release
+    catkin config -d devel_release
+    catkin config -i install_release
+    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
+}
+
+
 alias ckc='catkin config'
 
 # vpn

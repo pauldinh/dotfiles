@@ -195,38 +195,38 @@ label-urgent =
 
 ;pin-workspaces = true
 
-#[module/i3]
-#type = internal/i3
-#format = <label-state><label-mode>
-#
-#index-sort = true
-#enable-click = false
-#enable-scroll = false
-#
-#;ws-icon-0 = 0;*
-#;ws-icon-default = ○
-#
-#; Only show workspaces on the same output as the bar
-#;pin-workspaces = true
-#
-#label-mode = " %mode% "
-#label-mode-foreground = ${colors.red}
-#label-mode-background = ${colors.background}
-#
-#; focused = Active workspace on focused monitor
-#label-focused = " ● "
-#label-focused-foreground = ${colors.pink}
-#label-focused-background = ${colors.background}
-#
-#; unfocused = Inactive workspace on any monitor
-#label-unfocused = " %icon% "
-#label-unfocused-foreground = ${colors.foreground}
-#label-unfocused-background = ${colors.background}
-#
-#; urgent = Workspace with urgency hint set
-#label-urgent = " ● "
-#label-urgent-foreground = ${colors.red}
-#label-urgent-background = ${colors.background}
+;[module/i3]
+;type = internal/i3
+;format = <label-state><label-mode>
+;
+;index-sort = true
+;enable-click = false
+;enable-scroll = false
+;
+;;ws-icon-0 = 0;*
+;;ws-icon-default = ○
+;
+;; Only show workspaces on the same output as the bar
+;;pin-workspaces = true
+;
+;label-mode = " %mode% "
+;label-mode-foreground = ${colors.red}
+;label-mode-background = ${colors.background}
+;
+;; focused = Active workspace on focused monitor
+;label-focused = " ● "
+;label-focused-foreground = ${colors.pink}
+;label-focused-background = ${colors.background}
+;
+;; unfocused = Inactive workspace on any monitor
+;label-unfocused = " %icon% "
+;label-unfocused-foreground = ${colors.foreground}
+;label-unfocused-background = ${colors.background}
+;
+;; urgent = Workspace with urgency hint set
+;label-urgent = " ● "
+;label-urgent-foreground = ${colors.red}
+;label-urgent-background = ${colors.background}
 
 [module/i3]
 type = internal/i3

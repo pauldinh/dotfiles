@@ -4,9 +4,10 @@ echo 'It will rename existing files to *.backup'
 read -p 'Continue (y/n)? ' -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
+    echo '\n'
     # remove previous settings
     mv ~/.gitignore_global ~/.gitignore_global.backup
-    mv ~/.config/terminator/config ~/.config/terminator/config.backup
+    #mv ~/.config/terminator/config ~/.config/terminator/config.backup
     mv ~/.bash_aliases ~/.bash_aliases.backup
     mv ~/.tmux.conf ~/.tmux.conf.backup
     mv ~/.tmux/dev ~/.tmux/dev.backup
@@ -31,9 +32,11 @@ then
     ln -s ${PWD}/vim/vimrc ~/.vimrc
     mkdir -p ~/.vim/colors
     ln -s ${PWD}/vim/space-vim-dark.vim ~/.vim/colors/space-vim-dark.vim
+    mkdir -p ~/.config/nvim
+    ln -s ${PWD}/vim/vimrc ~/.config/nvim/init.vim
 
-    mkdir -p ~/.config/termite
-    ln -s ${PWD}/termite/config ~/.config/termite/config
+    #mkdir -p ~/.config/termite
+    #ln -s ${PWD}/termite/config ~/.config/termite/config
 
     ln -s ${PWD}/i3/i3status.conf ~/.i3status.conf
 
@@ -46,7 +49,7 @@ then
     mkdir -p ~/.config/polybar
     ln -s ${PWD}/polybar/launch.sh ~/.config/polybar/launch.sh
 
-    mkdir -l ~/.config/alacritty
+    mkdir -p ~/.config/alacritty
     ln -s ${PWD}/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 
     # tmux
