@@ -73,6 +73,14 @@ function cb() {
     catkin build $1
 }
 
+function cbt() {
+    catkin build --no-deps --this
+}
+
+function cbo() {
+    catkin build --no-deps $1
+}
+
 function cbe() {
     catkin build --env-cache $1
 }
