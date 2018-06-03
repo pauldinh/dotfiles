@@ -38,6 +38,11 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'liuchengxu/space-vim-dark'
 Plugin 'geoffharcourt/vim-matchit'
+Plugin 'vimwiki/vimwiki'
+"Plugin 'tbabej/taskwiki'
+"Plugin 'powerman/vim-plugin-AnsiEsc'
+"Plugin 'majutsushi/tagbar'
+"Plugin 'farseer90718/vim-taskwarrior'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -82,3 +87,9 @@ map <Space> :noh<cr>
 
 filetype indent on
 set smartindent
+
+" vimwiki/vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+"set ttymouse=xterm2
+set mouse=a

@@ -177,3 +177,6 @@ function lookatthat() {
    ls -al | lolcat -F 0.3
 }
 
+# enable/disable touchpad
+alias etp='xinput --enable "SynPS/2 Synaptics TouchPad"'
+alias dtp='xinput --disable "SynPS/2 Synaptics TouchPad"'
