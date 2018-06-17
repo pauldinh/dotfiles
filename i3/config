@@ -174,13 +174,13 @@ exec --no-startup-id feh --bg-scale ~/Dropbox/i3/synthwave.png
 # Compton
 exec --no-startup-id compton --vsync opengl --no-fading-openclose
 
-#gaps and borders
-#gaps inner 5
-#gaps outer 5
-new_window 1pixel
-smart_borders on
-smart_gaps on
-#for_window [class="^.*"] border pixel 3
+##gaps and borders
+##gaps inner 5
+##gaps outer 5
+#new_window 1pixel
+#smart_borders on
+#smart_gaps on
+##for_window [class="^.*"] border pixel 3
 
 # Style
 # border color

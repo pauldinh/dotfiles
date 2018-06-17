@@ -40,6 +40,7 @@ then
 
     ln -s ${PWD}/i3/i3status.conf ~/.i3status.conf
 
+    mkdir -p ~/.config/i3
     ln -s ${PWD}/i3/config ~/.config/i3/config
 
     ln -s ${PWD}/compton/compton.conf ~/.config/compton.conf
