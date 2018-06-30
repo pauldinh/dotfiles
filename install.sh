@@ -38,12 +38,12 @@ then
     #mkdir -p ~/.config/termite
     #ln -s ${PWD}/termite/config ~/.config/termite/config
 
-    ln -s ${PWD}/i3/i3status.conf ~/.i3status.conf
+    #ln -s ${PWD}/i3/i3status.conf ~/.i3status.conf
 
-    mkdir -p ~/.config/i3
-    ln -s ${PWD}/i3/config ~/.config/i3/config
+    #mkdir -p ~/.config/i3
+    #ln -s ${PWD}/i3/config ~/.config/i3/config
 
-    ln -s ${PWD}/compton/compton.conf ~/.config/compton.conf
+    #ln -s ${PWD}/compton/compton.conf ~/.config/compton.conf
 
     mkdir -p ~/.config/polybar
     ln -s ${PWD}/polybar/config ~/.config/polybar/config

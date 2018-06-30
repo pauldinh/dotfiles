@@ -62,7 +62,8 @@ alias tma='tmux attach -t'
 alias sros='source /opt/ros/kinetic/setup.bash'
 
 # anaconda python
-alias sap='export PATH=~/anaconda3/bin:$PATH'
+alias sap2='export PATH=~/anaconda2/bin:$PATH'
+alias sap3='export PATH=~/anaconda3/bin:$PATH'
 
 # catkin laziness
 function ce() {
@@ -180,3 +181,6 @@ function lookatthat() {
 # enable/disable touchpad
 alias etp='xinput --enable "SynPS/2 Synaptics TouchPad"'
 alias dtp='xinput --disable "SynPS/2 Synaptics TouchPad"'
+
+# rebind caps to ctrl
+setxkbmap -layout us -option ctrl:nocaps
