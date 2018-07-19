@@ -41,7 +41,8 @@ alias upgrade='sudo apt-get upgrade'
 alias gb="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)' refs/remotes"
 alias pport="sudo netstat -lpn | grep"
 alias gp='git remote update -p; git merge --ff-only @{u}'
-alias gitlol='git log --graph --pretty=oneline --abbrev-commit'
+alias gitlol='git log --graph --pretty=oneline --abbrev-commit --all --decorate --color'
+alias gg='git log --graph --pretty=oneline --abbrev-commit --all --decorate --color'
 alias clog='tail -f /var/log/syslog'
 alias gbclean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias gr='git remote -v'
@@ -184,3 +185,7 @@ alias dtp='xinput --disable "SynPS/2 Synaptics TouchPad"'
 
 # rebind caps to ctrl
 setxkbmap -layout us -option ctrl:nocaps
+
+alias sis='source install/setup.bash'
+alias sirs='source install_release/setup.bash'
+alias sids='source install_debug/setup.bash'
