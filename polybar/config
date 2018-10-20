@@ -24,7 +24,7 @@ red = #ee3333
 
 [bar/main]
 width = 100%
-height = 14
+height = 24
 radius = 1.0
 fixed-center = true
 
@@ -46,8 +46,9 @@ border-color = #131313
 ; module-margin-left = 1
 ; module-margin-right = 2
 
-font-0 = Hack:pixelsize=10:weight=bold;2
-font-1 = Hack:pixelsize=32;2
+font-0 = Hack:pixelsize=14:weight=bold;2
+font-1 = Hack:pixelsize=14;2
+;font-1 = Hack:pixelsize=32;2
 
 ;modules-left = i3 arrow0 i3index arrow
 modules-left = i3 arrow0 arrow
@@ -291,7 +292,7 @@ label-background = ${colors.grey}
 
 [module/wlan]
 type = internal/network
-interface = 
+interface =
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
@@ -313,7 +314,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = 
+interface =
 interval = 3.0
 
 format-connected-underline = #55aa55

@@ -35,9 +35,9 @@ Plugin 'VundleVim/Vundle.vim'
 " different version somewhere else.
 " Plugin 'ascenator/L9', {'name': 'newL9'}
 "
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'liuchengxu/space-vim-dark'
-Plugin 'geoffharcourt/vim-matchit'
+"Plugin 'terryma/vim-multiple-cursors'
+"Plugin 'liuchengxu/space-vim-dark'
+"Plugin 'geoffharcourt/vim-matchit'
 Plugin 'vimwiki/vimwiki'
 "Plugin 'tbabej/taskwiki'
 "Plugin 'powerman/vim-plugin-AnsiEsc'
