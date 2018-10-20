@@ -46,6 +46,17 @@ alias gg='git log --graph --pretty=oneline --abbrev-commit --all --decorate --co
 alias clog='tail -f /var/log/syslog'
 alias gbclean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias gr='git remote -v'
+alias gbr='git branch -r --merged'
+
+function gitfile() {
+    git rev-list --objects --all \
+    | git cat-file --batch-check='%(objecttype) %(objectname) %(objectsize) %(rest)' \
+    | sed -n 's/^blob //p' \
+    | sort --numeric-sort --key=2 \
+    | cut -c 1-12,41- \
+    | numfmt --field=2 --to=iec-i --suffix=B --padding=7 --round=nearest \
+    | awk '$2 >= 2^20'
+}
 
 # tmux
 export PATH=$HOME/.tmuxifier/bin:$PATH
@@ -58,9 +69,6 @@ alias tmks='tmux kill-server'
 alias tmls='tmux ls'
 alias tmd='tmux detach'
 alias tma='tmux attach -t'
-
-# ros
-alias sros='source /opt/ros/kinetic/setup.bash'
 
 # anaconda python
 alias sap2='export PATH=~/anaconda2/bin:$PATH'
@@ -105,6 +113,7 @@ function cbre() {
 
 function ct() {
     catkin run_tests --no-deps $1 && catkin test --no-deps $1
+    #catkin test --no-deps $1
 }
 
 function ccov() {
@@ -145,6 +154,9 @@ function ccrrr() {
     catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 }
 
+function rcd() {
+    jump dd/src/$1
+}
 
 alias ckc='catkin config'
 
@@ -186,6 +198,62 @@ alias dtp='xinput --disable "SynPS/2 Synaptics TouchPad"'
 # rebind caps to ctrl
 setxkbmap -layout us -option ctrl:nocaps
 
-alias sis='source install/setup.bash'
-alias sirs='source install_release/setup.bash'
-alias sids='source install_debug/setup.bash'
+function git-size {
+    # set the internal field spereator to line break, so that we can iterate easily over the verify-pack output
+    IFS=$'\n';
+
+    # list all objects including their size, sort by size, take top 10
+    objects=`git verify-pack -v $1/.git/objects/pack/pack-*.idx | grep -v chain | sort -k3nr | head`
+
+    echo "All sizes are in kB's. The pack column is the size of the object, compressed, inside the pack file."
+
+    output="size,pack,SHA,location"
+    allObjects=`git rev-list --all --objects`
+    for y in $objects
+    do
+        # extract the size in bytes
+        size=$((`echo $y | cut -f 5 -d ' '`/1024))
+        # extract the compressed size in bytes
+        compressedSize=$((`echo $y | cut -f 6 -d ' '`/1024))
+        # extract the SHA
+        sha=`echo $y | cut -f 1 -d ' '`
+        # find the objects location in the repository tree
+        other=`echo "${allObjects}" | grep $sha`
+        #lineBreak=`echo -e "\n"`
+        output="${output}\n${size},${compressedSize},${other}"
+    done
+
+    echo -e $output | column -t -s ', '
+}
+
+alias cat='bat'
+
+# gpr - create merge request from command line
+# Colour constants for nicer output.
+GREEN='\033[0;32m'
+RESET='\033[0m'
+
+# Push the current branch to origin, set upstream, open the PR page if possible.
+gpr() {
+    # Get the current branch name, or use 'HEAD' if we cannot get it.
+    branch=$(git symbolic-ref -q HEAD)
+    branch=${branch##refs/heads/}
+    branch=${branch:-HEAD}
+
+    # Pushing take a little while, so let the user know we're working.
+    echo "Opening pull request for ${GREEN}${branch}${RESET}..."
+
+    # Push to origin, grabbing the output but then echoing it back.
+    push_output=`git push origin -u ${branch} 2>&1`
+    echo ""
+    echo ${push_output}
+
+    # If there's anything which starts with http, it's a good guess it'll be a
+    # link to GitHub/GitLab/Whatever. So open it.
+    link=$(echo ${push_output} | grep -o 'https.*' | sed -e 's/[[:space:]]*$//')
+    if [ ${link} ]; then
+        echo ""
+        echo "Opening: ${GREEN}${link}${RESET}..."
+        python -mwebbrowser ${link}
+    fi
+}
