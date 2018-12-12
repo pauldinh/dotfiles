@@ -246,11 +246,16 @@ gpr() {
     # Push to origin, grabbing the output but then echoing it back.
     push_output=`git push origin -u ${branch} 2>&1`
     echo ""
+    echo "push_output"
     echo ${push_output}
 
+    regex="(http|ftp|https)://([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?"
     # If there's anything which starts with http, it's a good guess it'll be a
     # link to GitHub/GitLab/Whatever. So open it.
     link=$(echo ${push_output} | grep -o 'https.*' | sed -e 's/[[:space:]]*$//')
+    echo ""
+    echo "link"
+    echo ${link}
     if [ ${link} ]; then
         echo ""
         echo "Opening: ${GREEN}${link}${RESET}..."
