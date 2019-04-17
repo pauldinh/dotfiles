@@ -47,6 +47,7 @@ alias clog='tail -f /var/log/syslog'
 alias gbclean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias gr='git remote -v'
 alias gbr='git branch -r --merged'
+alias gs='git status'
 
 function gitfile() {
     git rev-list --objects --all \
@@ -111,9 +112,12 @@ function cbre() {
     catkin build --profile release --cache-env $1
 }
 
+function crt() {
+    catkin run_tests --no-deps $1
+}
+
 function ct() {
-    catkin run_tests --no-deps $1 && catkin test --no-deps $1
-    #catkin test --no-deps $1
+    catkin test --no-deps $1
 }
 
 function ccov() {
@@ -141,7 +145,8 @@ function ccr() {
     catkin config -b build_release
     catkin config -d devel_release
     catkin config -i install_release
-    catkin config --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    #catkin config --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 }
 
 function ccrrr() {
@@ -154,6 +159,18 @@ function ccrrr() {
     catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 }
 
+function ccrunner() {
+    catkin profile add --copy-active runner
+    catkin profile set runner
+    catkin config --log-space logs_runner
+    catkin config -b build_runner
+    catkin config -d devel_runner
+    catkin config -i install_runner
+    #catkin config --cmake-args -DCMAKE_BUILD_TYPE=ReleaseWithDebInfo
+    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
+}
+
+
 function rcd() {
     jump dd/src/$1
 }
@@ -162,6 +179,31 @@ alias ckc='catkin config'
 
 # vpn
 alias vpn='sudo openvpn --config ~/vpn/client.ovpn'
+
+# git-branch-clean
+function simgbc() {
+    red=$'\e[1;31m'
+    grn=$'\e[1;32m'
+    yel=$'\e[1;33m'
+    blu=$'\e[1;34m'
+    mag=$'\e[1;35m'
+    cyn=$'\e[1;36m'
+    end=$'\e[0m'
+
+    for i in * ; do
+      if [ -d "$i" ]; then
+          reponame=$(basename "$i")
+          printf "+----------------------------------------------------+\n"
+          printf "| ${cyn}%-50s${end} |\n" $reponame
+          printf "+----------------------------------------------------+\n"
+          cd $reponame
+          git branch --merged | egrep -v "(^\*|master|dev)"
+          cd ..
+          printf "\n"
+      fi
+    done
+}
+
 
 # git-branch-clean
 function gbc() {
@@ -227,6 +269,10 @@ function git-size {
 }
 
 alias cat='bat'
+alias tree='tree -f -i'
+alias vco='vcs custom --args checkout'
+alias vca='vcs custom --args'
+alias vcarpo='vcs custom --args remote prune origin'
 
 # gpr - create merge request from command line
 # Colour constants for nicer output.
@@ -262,3 +308,7 @@ gpr() {
         python -mwebbrowser ${link}
     fi
 }
+
+alias vp='vcs pull && vcarpo && gbc'
+alias saq='source /home/pdinh/ws/aquanaut/install_release/setup.bash'
+alias pong='ping'
