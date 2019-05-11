@@ -6,7 +6,6 @@ filetype plugin on
 call plug#begin('~/.config/nvim/plugged')
 Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/space-vim-dark'
 Plug 'unblevable/quick-scope'       " Plug
 call plug#end()

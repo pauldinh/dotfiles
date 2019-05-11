@@ -81,7 +81,7 @@ function ce() {
 }
 
 function cb() {
-    catkin build $1
+    catkin build $1 -j 10
 }
 
 function cbt() {
@@ -141,10 +141,10 @@ function ccd() {
 function ccr() {
     catkin profile add --copy-active release
     catkin profile set release
-    catkin config --log-space logs_release
-    catkin config -b build_release
-    catkin config -d devel_release
-    catkin config -i install_release
+    catkin config --log-space logs
+    catkin config -b build
+    catkin config -d devel
+    catkin config -i install
     #catkin config --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
     catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 }
