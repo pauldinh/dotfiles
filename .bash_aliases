@@ -181,51 +181,26 @@ alias ckc='catkin config'
 alias vpn='sudo openvpn --config ~/vpn/client.ovpn'
 
 # git-branch-clean
-function simgbc() {
-    red=$'\e[1;31m'
-    grn=$'\e[1;32m'
-    yel=$'\e[1;33m'
-    blu=$'\e[1;34m'
-    mag=$'\e[1;35m'
-    cyn=$'\e[1;36m'
-    end=$'\e[0m'
-
-    for i in * ; do
-      if [ -d "$i" ]; then
-          reponame=$(basename "$i")
-          printf "+----------------------------------------------------+\n"
-          printf "| ${cyn}%-50s${end} |\n" $reponame
-          printf "+----------------------------------------------------+\n"
-          cd $reponame
-          git branch --merged | egrep -v "(^\*|master|dev)"
-          cd ..
-          printf "\n"
-      fi
-    done
-}
-
-
-# git-branch-clean
 function gbc() {
-    red=$'\e[1;31m'
-    grn=$'\e[1;32m'
-    yel=$'\e[1;33m'
-    blu=$'\e[1;34m'
-    mag=$'\e[1;35m'
     cyn=$'\e[1;36m'
     end=$'\e[0m'
 
+    printf "Pruning local, non- master/develop branches that have been merged into the current branch..\n"
+
     for i in * ; do
-      if [ -d "$i" ]; then
-          reponame=$(basename "$i")
-          printf "+----------------------------------------------------+\n"
-          printf "| ${cyn}%-50s${end} |\n" $reponame
-          printf "+----------------------------------------------------+\n"
-          cd $reponame
-          git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
-          cd ..
-          printf "\n"
-      fi
+        if [ -d "$i" ]; then
+            reponame=$(basename "$i")
+            cd $reponame
+            if [ -d .git ]; then
+                output=$(git branch --merged | egrep -v "(^\*|master|dev)")
+                if [ $output ]; then
+                    printf "${cyn}$(pwd)${1#.}/%s${end}\n" $reponame
+                    git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
+                    printf "\n"
+                fi
+            fi
+            cd ..
+        fi
     done
 }
 
@@ -269,7 +244,7 @@ function git-size {
 }
 
 alias cat='bat'
-alias tree='tree -f -i'
+#alias tree='tree -f -i'
 alias vco='vcs custom --args checkout'
 alias vca='vcs custom --args'
 alias vcarpo='vcs custom --args remote prune origin'

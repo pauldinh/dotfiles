@@ -4,10 +4,14 @@ filetype plugin on
 
 """" vim-plug
 call plug#begin('~/.config/nvim/plugged')
-Plug 'vimwiki/vimwiki'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/space-vim-dark'
-Plug 'unblevable/quick-scope'       " Plug
+Plug 'unblevable/quick-scope'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 filetype plugin indent on
@@ -43,7 +47,7 @@ set smartindent
 let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 "set ttymouse=xterm2
-set mouse=a
+set mouse=
 
 " fzf
 set rtp+=~/.fzf
@@ -75,3 +79,6 @@ set cmdwinheight=6
 color space-vim-dark
 hi Normal ctermbg=NONE guibg=NONE
 hi LineNr ctermbg=NONE guibg=NONE
+
+" nerdtree
+" autocmd vimenter * NERDTree
