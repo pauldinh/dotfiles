@@ -244,7 +244,10 @@ function git-size {
 }
 
 alias cat='bat'
-#alias tree='tree -f -i'
+alias ls='lsd --group-dirs first'
+alias lls='lsd -l --group-dirs first -S'
+alias llt='lsd -l --group-dirs first -t'
+alias tree='ls --tree'
 alias vco='vcs custom --args checkout'
 alias vca='vcs custom --args'
 alias vcarpo='vcs custom --args remote prune origin'
@@ -287,3 +290,20 @@ gpr() {
 alias vp='vcs pull && vcarpo && gbc'
 alias saq='source /home/pdinh/ws/aquanaut/install_release/setup.bash'
 alias pong='ping'
+
+# YES I AM LAZY
+alias sbrc='source ~/.bashrc'
+
+# gcalcli
+alias hmical='gcalcli --calendar="HMI Company Calendar"'
+alias hmicala='gcalcli --calendar="HMI Company Calendar" agenda'
+alias hmicalw='gcalcli --calendar="HMI Company Calendar" calw'
+alias hmicalm='gcalcli --calendar="HMI Company Calendar" calm'
+alias mecal='gcalcli --calendar="pdinh@houstonmechatronics.com"'
+alias mecala='gcalcli --calendar="pdinh@houstonmechatronics.com" agenda'
+alias mecalw='gcalcli --calendar="pdinh@houstonmechatronics.com" calw'
+alias mecalm='gcalcli --calendar="pdinh@houstonmechatronics.com" calm'
+alias aqcal='gcalcli --calendar="Aquanaut Team Calendar"'
+alias aqcala='gcalcli --calendar="Aquanaut Team Calendar" agenda'
+alias aqcalw='gcalcli --calendar="Aquanaut Team Calendar" calw'
+alias aqcalm='gcalcli --calendar="Aquanaut Team Calendar" calm'
