@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# dumb shit that isn't productive in the least
+
+function lookatthat() {
+   ls -al | lolcat -F 0.3
+}

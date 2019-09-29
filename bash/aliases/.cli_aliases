@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# the good stuff
+# aliases used for suite of productivity software I use
+
+alias cat='bat'
+alias ls='lsd --group-dirs first'
+alias lls='lsd -l --group-dirs first -S'
+alias llt='lsd -l --group-dirs first -t'
+alias tree='ls --tree'

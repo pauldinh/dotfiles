@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# general aliases to increase productivity over 9000 (aka i am lazy)
+# these should all be portable and not reliant on paths that may not exist on different machines
+# with a few exceptions i.e. touchpad aliases assumes specific hardware, just update that if needed
+
+alias update='sudo apt-get update'
+alias upgrade='sudo apt-get upgrade'
+alias psg='ps aux | grep'
+alias pport="sudo netstat -lpn | grep"
+alias k9='kill -9'
+alias sbrc='source ~/.bashrc'
+
+# enable/disable touchpad
+alias etp='xinput --enable "SynPS/2 Synaptics TouchPad"'
+alias dtp='xinput --disable "SynPS/2 Synaptics TouchPad"'
+
+# rebind caps to ctrl
+setxkbmap -layout us -option ctrl:nocaps

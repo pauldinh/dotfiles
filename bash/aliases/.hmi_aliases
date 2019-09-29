@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# aliases specific to HMI
+alias vpn='sudo openvpn --config ~/vpn/client.ovpn'
+
+# gcalcli
+alias hmical='gcalcli --calendar="HMI Company Calendar"'
+alias hmicala='gcalcli --calendar="HMI Company Calendar" agenda'
+alias hmicalw='gcalcli --calendar="HMI Company Calendar" calw'
+alias hmicalm='gcalcli --calendar="HMI Company Calendar" calm'
+alias mecal='gcalcli --calendar="pdinh@houstonmechatronics.com"'
+alias mecala='gcalcli --calendar="pdinh@houstonmechatronics.com" agenda'
+alias mecalw='gcalcli --calendar="pdinh@houstonmechatronics.com" calw'
+alias mecalm='gcalcli --calendar="pdinh@houstonmechatronics.com" calm'
+alias aqcal='gcalcli --calendar="Aquanaut Team Calendar"'
+alias aqcala='gcalcli --calendar="Aquanaut Team Calendar" agenda'
+alias aqcalw='gcalcli --calendar="Aquanaut Team Calendar" calw'
+alias aqcalm='gcalcli --calendar="Aquanaut Team Calendar" calm'
+
+# rclone sync
+alias testrcnotes='rclone sync ~/notes gdrive:notes --dry-run'
+alias rcnotes='rclone sync ~/notes gdrive:notes'
