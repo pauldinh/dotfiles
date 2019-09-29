@@ -330,6 +330,10 @@ set -sg escape-time 0
 
 bind v set -g synchronize-panes
 
+# fix for alacritty terminfo true color stuff
+set  -g default-terminal "tmux-256color"
+set -ag terminal-overrides ",alacritty:RGB"
+
 # initialize tpm, this MUST be at the bottom
 run '~/.tmux/plugins/tpm/tpm'
 
