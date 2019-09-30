@@ -336,6 +336,9 @@ bind n set -g synchronize-panes
 set  -g default-terminal "tmux-256color"
 set -ag terminal-overrides ",alacritty:RGB"
 
+# rebind clear-history / refresh screen
+bind -n C-g send-keys C-l \; run 'sleep 0.1' \; clear-history
+
 # initialize tpm, this MUST be at the bottom
 run '~/.tmux/plugins/tpm/tpm'
 
