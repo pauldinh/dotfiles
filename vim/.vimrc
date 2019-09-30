@@ -67,8 +67,8 @@ set mouse=a
 " remove trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-"" fzf
-"nnoremap <C-p> :Files ~/ws/aquanaut/src<Cr>
+" fzf
+map ; :Files ~/aquanaut_ws/src<Cr>
 "nnoremap <C-g> :Rg<Cr>
 
 " customize fzf statusline
