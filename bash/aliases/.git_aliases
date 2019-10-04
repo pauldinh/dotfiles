@@ -27,7 +27,7 @@ function gbc() {
             cd $reponame
             if [ -d .git ]; then
                 output=$(git branch --merged | egrep -v "(^\*|master|dev)")
-                if [ $output ]; then
+                if [[ $output ]]; then
                     printf "${cyn}$(pwd)${1#.}/%s${end}\n" $reponame
                     git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d
                     printf "\n"
