@@ -8,3 +8,5 @@ alias ls='lsd --group-dirs first'
 alias lls='lsd -l --group-dirs first -S'
 alias llt='lsd -l --group-dirs first -t'
 alias tree='ls --tree'
+
+complete -W "$(tldr 2>/dev/null --list)" tldr
