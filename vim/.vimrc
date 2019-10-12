@@ -119,3 +119,6 @@ let g:nv_default_extension = '.adoc'
 "autocmd! User GoyoLeave Limelight!
 "let g:limelight_conceal_ctermfg = 240
 "let g:limelight_conceal_guifg = '#777777'
+"
+" saving file as root
+cmap w!! %!sudo tee > /dev/null %
