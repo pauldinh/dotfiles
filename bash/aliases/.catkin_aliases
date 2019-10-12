@@ -47,7 +47,7 @@ function ct() {
 }
 
 function ccov() {
-    catkin build --no-deps $1 -DCMAKE_BUILD_TYPE=Coverage --make-args run_coverage_$1
+    catkin build --no-deps $1 --cmake-args -DCMAKE_BUILD_TYPE=Coverage --make-args run_coverage_$1
 }
 
 function cfor() {
