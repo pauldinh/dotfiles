@@ -318,7 +318,7 @@ bind C-a send-prefix
 
 # rebind urlview to Y
 unbind U
-bind Y run "cut -c3- ~/.tmux.conf | sh -s _urlview #{pane_id}"
+bind H run "cut -c3- ~/.tmux.conf | sh -s _urlview #{pane_id}"
 
 # don't constrain size to smallest client that's connected
 set -g aggressive-resize on
