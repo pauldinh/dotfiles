@@ -10,6 +10,9 @@ alias gp='git remote update -p; git merge --ff-only @{u}'
 alias gitlol='git log --graph --pretty=oneline --abbrev-commit --all --decorate --color'
 alias gg='git log --graph --pretty=oneline --abbrev-commit --all --decorate --color'
 
+# show all remote branches that have been merged into the current
+alias gbr='git branch -r --merged'
+
 # delete all local branches that have been merged into the current branch (ignores branches named master/dev*)
 # intended use is to switch to master or develop and run, but i guess it could be used on feature branches
 alias gbclean='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
