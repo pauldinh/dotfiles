@@ -20,3 +20,10 @@ alias aqcalm='gcalcli --calendar="Aquanaut Team Calendar" calm'
 # rclone sync
 alias testrcnotes='rclone sync ~/notes gdrive:notes --dry-run'
 alias rcnotes='rclone sync ~/notes gdrive:notes'
+
+# workspace sourcing
+alias sourceaq='source ~/aquanaut_ws/install/setup.bash'
+alias sourceoly='source ~/oly_ws/install/setup.bash'
+alias sourcehal='source ~/hal_ws/install/setup.bash'
+alias sourcecontrol='source ~/control_ws/install/setup.bash'
+alias sourcelj='source ~/lj_ws/install/setup.bash'
