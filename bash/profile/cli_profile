@@ -29,3 +29,5 @@ complete -W "$(tldr 2>/dev/null --list)" tldr
 export FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --exclude .git --color=always"
 export FZF_DEFAULT_OPTS="--ansi"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+export BROWSER=/usr/bin/firefox
