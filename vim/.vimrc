@@ -122,3 +122,6 @@ let g:nv_default_extension = '.adoc'
 "
 " saving file as root
 cmap w!! %!sudo tee > /dev/null %
+
+" xml indent
+set equalprg=xmllint\ --format\ -
