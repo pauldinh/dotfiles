@@ -24,3 +24,5 @@ export PATH="/snap/bin:$PATH"
 
 # ansible hacking script
 alias ansible-test-module='$HOME/src/ansible/hacking/test-module -m'
+
+export PATH=/usr/lib/ccache:$PATH
