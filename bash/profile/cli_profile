@@ -64,3 +64,5 @@ bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 bind '"\e[C": forward-char'
 bind '"\e[D": backward-char'
+
+export PATH=$HOME/dotfiles/diff-so-fancy:$PATH

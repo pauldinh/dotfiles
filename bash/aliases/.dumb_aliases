@@ -5,3 +5,5 @@
 function lookatthat() {
    ls -al | lolcat -F 0.3
 }
+
+alias eli='tiv ~/Pictures/eli.jpg'
