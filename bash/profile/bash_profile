@@ -6,4 +6,3 @@ if [[ ! -d "$DIR" ]]; then DIR="$PWD"; fi
 source $DIR/cli_profile
 source $DIR/hmi_profile
 source $DIR/gazebo_profile
-
