@@ -7,3 +7,9 @@ function lookatthat() {
 }
 
 alias eli='tiv ~/Pictures/eli.jpg'
+
+function pipenms() {
+    cat $1 | nms -a
+}
+
+alias decrypt='pipenms'
