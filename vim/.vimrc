@@ -24,7 +24,7 @@ Plug 'alok/notational-fzf-vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " git vim integration.. rarely use this but it looks powerful
-Plug 'tpope/vim-fugitive'
+"Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
