@@ -2,8 +2,6 @@
 
 # stuff specific to HMI
 
-export ASCIINEMA_API_URL="http://10.10.15.232"
-
 #export ROS_IP="192.168.100.66"
 #export ROS_MASTER_URI="http://192.168.10.110:11311"
 #export ROS_IP="192.168.10.25"
