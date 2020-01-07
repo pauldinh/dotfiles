@@ -4,9 +4,12 @@
 # aliases used for suite of productivity software I use
 
 alias cat='bat'
-alias ls='lsd --group-dirs first'
-alias lls='lsd -l --group-dirs first -S'
-alias llt='lsd -l --group-dirs first -t'
-alias tree='ls --tree'
+#alias ls='lsd --group-dirs first'
+#alias lls='lsd -l --group-dirs first -S'
+#alias llt='lsd -l --group-dirs first -t'
+#alias tree='ls --tree'
+alias ls='exa --group-directories-first'
+alias ll='exa --group-directories-first -l -s extension -s type -a'
+alias llt='ls -lsnew -a'
 
 complete -W "$(tldr 2>/dev/null --list)" tldr
