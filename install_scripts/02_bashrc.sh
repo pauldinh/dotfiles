@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "source $HOME/dotfiles/bash/.bash_profile" >> ~/.bashrc
+
+# git-aware-prompt
+mkdir -p $HOME/.bash && cd $HOME/.bash
+git clone https://github.com/pauldinh/git-aware-prompt.git
+echo "export GITAWAREPROMPT=~/.bash/git-aware-prompt" >> $HOME/.bashrc
+echo 'source "${GITAWAREPROMPT}/main.sh"' >> $HOME/.bashrc
