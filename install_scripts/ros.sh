@@ -13,4 +13,10 @@ sudo rosdep init
 rosdep update
 
 # catkin tools and other shit
-sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential python-catkin-tools
+sudo apt install \
+    python-rosinstall \
+    python-rosinstall-generator \
+    python-wstool \
+    build-essential \
+    python-catkin-tools \
+    python3-vcstool
