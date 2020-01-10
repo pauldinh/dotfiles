@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # get dependencies
-sudo apt install libevent-dev libncurses5-dev
+sudo apt install libevent-dev libncurses5-dev urlview
 
 # tmux
 cwd=$(pwd)
@@ -20,3 +20,6 @@ git clone https://github.com/jimeh/tmuxifier.git ${HOME}/.tmuxifier
 git clone https://github.com/gpakosz/.tmux.git ${HOME}/.tmux
 ln -sf ${HOME}/.tmux/.tmux.conf ~/.tmux.conf
 ln -sf ${HOME}/dotfiles/tmux/.tmux.conf.local ${HOME}/.tmux.conf.local
+
+# clone tpm plugins into .tmux: https://github.com/gpakosz/.tmux/pull/216
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

@@ -276,21 +276,14 @@ tmux_conf_copy_to_os_clipboard=true
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
-# list plugins in different format: https://github.com/gpakosz/.tmux/issues/228
-#set -g @plugin 'tmux-plugins/tpm'
-#set -g @plugin 'tmux-plugins/tmux-resurrect'
-#set -g @plugin 'tmux-plugins/tmux-yank'
-
-set -g @tpm_plugins '              \
-    tmux-plugins/tpm               \
-    tmux-plugins/tmux-resurrect    \
-    tmux-plugins/tmux-fpp          \
-    tmux-plugins/tmux-urlview      \
-    tmux-plugins/tmux-copycat      \
-    tmux-plugins/tmux-yank         \
-    tmux-plugins/tmux-open         \
-    #christoomey/vim-tmux-navigator \
-'
+# must have tpm plugins cloned in .tmux: https://github.com/gpakosz/.tmux/pull/216
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'tmux-plugins/tmux-fpp'
+set -g @plugin 'tmux-plugins/tmux-open'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+set -g @plugin 'tmux-plugins/tmux-urlview'
+set -g @plugin 'tmux-plugins/tmux-yank'
 
 # tmux-resurrect, optional restore pane contents
 set -g @resurrect-capture-pane-contents 'on'
@@ -316,9 +309,9 @@ bind C-a send-prefix
 # move status line to top
 #set -g status-position top
 
-# rebind urlview to Y
-unbind U
-bind H run "cut -c3- ~/.tmux.conf | sh -s _urlview #{pane_id}"
+## rebind urlview to H
+#unbind U
+#bind H run "cut -c3- ~/.tmux.conf | sh -s _urlview #{pane_id}"
 
 # don't constrain size to smallest client that's connected
 set -g aggressive-resize on
@@ -381,4 +374,3 @@ bind-key -n 'C-\' if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
 
 # initialize tpm, this MUST be at the bottom
 run '~/.tmux/plugins/tpm/tpm'
-
