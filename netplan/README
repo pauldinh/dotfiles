@@ -1,0 +1,8 @@
+1. replace mac address and interface name in udev rule
+2. install udev rule in /etc/udev/rules.d
+3. copy / pattern match netplan config in /etc/netplan
+
+# is this necessary?
+4. update /etc/default/grub with GRUB_CMDLINE_LINUX="net.ifnames=1 biosdevname=0"
+5. sudo update-grub
+6. reboot
