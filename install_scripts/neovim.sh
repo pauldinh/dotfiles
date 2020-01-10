@@ -9,14 +9,14 @@ sudo update-alternatives --install /usr/bin/vim vim /usr/local/bin/nvim 60
 sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 60
 
 # vim-plug
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # mkdir for notational velocity (note taking)
-mkdir -p ~/notes
+mkdir -p ${HOME}/notes
 
 # symlink .vimrc
-mkdir -p ~/.config/nvim
-ln -s ~/dotfiles/vim/.vimrc ~/.config/nvim/init.vim
+mkdir -p ${HOME}/.config/nvim
+ln -s ${HOME}/dotfiles/vim/.vimrc ${HOME}/.config/nvim/init.vim
 
 # clipboard bs for ubuntu
 sudo apt install xclip

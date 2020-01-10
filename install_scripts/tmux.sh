@@ -14,9 +14,9 @@ make && sudo make install
 cd $cwd
 
 # tmuxifier
-git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+git clone https://github.com/jimeh/tmuxifier.git ${HOME}/.tmuxifier
 
 # oh my tmux
-git clone https://github.com/gpakosz/.tmux.git ~/.tmux
-ln -sf ~/.tmux/.tmux.conf ~/.tmux.conf
-ln -sf ~/dotfiles/tmux/.tmux.conf.local ~/.tmux.conf.local
+git clone https://github.com/gpakosz/.tmux.git ${HOME}/.tmux
+ln -sf ${HOME}/.tmux/.tmux.conf ~/.tmux.conf
+ln -sf ${HOME}/dotfiles/tmux/.tmux.conf.local ${HOME}/.tmux.conf.local
