@@ -13,7 +13,7 @@ cd ${CARGO_INSTALL_DIR}
 # needs root privileges
 sudo ./cargo install bandwhich --root /usr/local
 
-# exa - ls alternative
-cargo install exa
+# broot - navigate directories sexily
+cargo install broot
 
 cd ${cwd}

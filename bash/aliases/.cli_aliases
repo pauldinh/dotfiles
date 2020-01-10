@@ -3,14 +3,15 @@
 # the good stuff
 # aliases used for suite of productivity software I use
 
-alias cat='bat'
-#alias ls='lsd --group-dirs first'
-#alias lls='lsd -l --group-dirs first -S'
-#alias llt='lsd -l --group-dirs first -t'
-#alias tree='ls --tree'
-alias ls='exa --group-directories-first'
-alias ll='exa --group-directories-first -l -s extension -s type -a'
-alias llt='ls -lsnew -a'
+alias cat='bat -p'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+alias ls='lsd --group-dirs first'
+alias lls='lsd -l --group-dirs first -S'
+alias llt='lsd -l --group-dirs first -t'
+alias tree='ls --tree'
+#alias ls='exa --group-directories-first'
+#alias ll='exa --group-directories-first -l -s extension -s type -a'
+#alias llt='ls -lsnew -a'
 
 alias rgh='rg --hidden'
 
