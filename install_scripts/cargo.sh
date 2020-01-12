@@ -16,4 +16,7 @@ sudo ./cargo install bandwhich --root /usr/local
 # broot - navigate directories sexily
 cargo install broot
 
+# https://github.com/BurntSushi - savant
+cargo install ripgrep
+
 cd ${cwd}
