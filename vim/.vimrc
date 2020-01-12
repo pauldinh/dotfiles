@@ -26,6 +26,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " git vim integration.. rarely use this but it looks powerful
 "Plug 'tpope/vim-fugitive'
 
+" toml syntax highlighting
+Plug 'cespare/vim-toml'
+
 call plug#end()
 
 " show tabs and trailing spaces
