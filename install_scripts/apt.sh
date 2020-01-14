@@ -3,4 +3,5 @@
 sudo apt install \
     htop \
     slurm \
-    ncdu
+    ncdu \
+    meld
