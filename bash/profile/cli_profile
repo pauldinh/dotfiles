@@ -1,5 +1,8 @@
 #!/bin/bash
 
+export EDITOR=vim
+export VISUAL=vim
+
 # the good stuff
 # environment variables for productivity stuff
 
