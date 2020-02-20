@@ -29,6 +29,9 @@ Plug 'christoomey/vim-tmux-navigator'
 " toml syntax highlighting
 Plug 'cespare/vim-toml'
 
+" devdocs.io integration
+Plug 'rhysd/devdocs.vim'
+
 call plug#end()
 
 " show tabs and trailing spaces
@@ -73,6 +76,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 " fzf
 map ; :Files ~/aquanaut_ws/src<Cr>
 "nnoremap <C-g> :Rg<Cr>
+command! -bang -nargs=* Find call fzf#vim#grep('rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --glob "!.git/*" --color "always" '.shellescape(<q-args>), 1, <bang>0)
 
 " customize fzf statusline
 autocmd! FileType fzf
@@ -128,3 +132,6 @@ cmap w!! %!sudo tee > /dev/null %
 
 " xml indent
 set equalprg=xmllint\ --format\ -
+
+" devdocs remap K to search under cursor
+nmap K <Plug>(devdocs-under-cursor)

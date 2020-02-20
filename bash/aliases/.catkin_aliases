@@ -75,6 +75,17 @@ function ccr() {
     catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
 }
 
+function ccrdevel() {
+    catkin profile add --copy-active release_devel
+    catkin profile set release_devel
+    catkin config --log-space logs_devel
+    catkin config -b build_devel
+    catkin config -d devel_devel
+    catkin config --no-install
+    #catkin config --cmake-args -DCMAKE_BUILD_TYPE=RelWithDebInfo
+    catkin config --cmake-args -DCMAKE_BUILD_TYPE=Release
+}
+
 function ccrrr() {
     catkin profile add --copy-active release
     catkin profile set release
