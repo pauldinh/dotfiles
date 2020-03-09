@@ -12,7 +12,4 @@ alias tree='ls --tree'
 #alias ls='exa --group-directories-first'
 #alias ll='exa --group-directories-first -l -s extension -s type -a'
 #alias llt='ls -lsnew -a'
-
 alias rgh='rg --hidden'
-
-complete -W "$(tldr 2>/dev/null --list)" tldr
