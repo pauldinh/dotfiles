@@ -4,13 +4,13 @@ cwd=$(pwd)
 
 # powerline
 cd /tmp
-git clone https://github.com/powerline/fonts.git --depth=1
+git clone https://github.com/powerline/fonts.git --depth 1
 cd fonts
 ./install.sh
 
 # nerd-fonts
 cd /tmp
-git clone https://github.com/ryanoasis/nerd-fonts.git
+git clone https://github.com/ryanoasis/nerd-fonts.git --depth 1
 cd nerd-fonts
 ./install.sh
 

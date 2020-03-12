@@ -4,4 +4,6 @@ sudo apt install \
     htop \
     slurm \
     ncdu \
-    meld
+    meld \
+    tig \
+    gitg

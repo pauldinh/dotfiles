@@ -5,6 +5,7 @@ sudo apt install libevent-dev libncurses5-dev urlview
 
 # tmux
 cwd=$(pwd)
+cd /tmp
 wget -P _tmux/ https://github.com/tmux/tmux/releases/download/3.0a/tmux-3.0a.tar.gz
 cd _tmux
 tar xf tmux-3.0a.tar.gz

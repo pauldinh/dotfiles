@@ -19,4 +19,14 @@ cargo install broot
 # https://github.com/BurntSushi - savant
 cargo install ripgrep
 
+# https://github.com/sharkdp
+cargo install fd-find hyperfine hexyl diskus
+
+# https://github.com/Peltoche/lsd
+cargo install lsd
+
+# bat dependencies
+sudo apt install clang llvm-config
+cargo install bat
+
 cd ${cwd}
