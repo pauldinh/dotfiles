@@ -29,4 +29,8 @@ cargo install lsd
 sudo apt install clang llvm-config
 cargo install bat
 
+# network bandwidth monitor
+sudo cargo install bandwhich --root /usr/local
+sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep $(which bandwhich)
+
 cd ${cwd}
