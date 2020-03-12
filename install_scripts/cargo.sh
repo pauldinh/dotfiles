@@ -33,4 +33,7 @@ cargo install bat
 sudo cargo install bandwhich --root /usr/local
 sudo setcap cap_sys_ptrace,cap_dac_read_search,cap_net_raw,cap_net_admin+ep $(which bandwhich)
 
+# mdbook documentation
+cargo install mdbook
+
 cd ${cwd}
