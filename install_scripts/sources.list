@@ -1,0 +1,63 @@
+# ubuntu
+deb [arch=amd64] http://localhost/archive.ubuntu.com/ubuntu bionic main restricted universe multiverse
+deb [arch=amd64] http://localhost/archive.ubuntu.com/ubuntu bionic-security main restricted universe multiverse
+deb [arch=amd64] http://localhost/archive.ubuntu.com/ubuntu bionic-updates main restricted universe multiverse
+deb-src [arch=amd64] http://localhost/archive.ubuntu.com/ubuntu bionic main restricted universe multiverse
+deb-src [arch=amd64] http://localhost/archive.ubuntu.com/ubuntu bionic-security main restricted universe multiverse
+deb-src [arch=amd64] http://localhost/archive.ubuntu.com/ubuntu bionic-updates main restricted universe multiverse
+
+# virtualbox
+deb [arch=amd64] http://localhost/download.virtualbox.org/virtualbox/debian bionic contrib
+
+## duo
+deb [arch=amd64] http://localhost/pkg.duosecurity.com/Ubuntu bionic main
+
+## docker
+deb [arch=amd64] http://localhost/download.docker.com/linux/ubuntu bionic stable
+
+# ros
+deb [arch=amd64] http://localhost/packages.ros.org/ros/ubuntu bionic main
+
+# spotify
+deb [arch=amd64] http://localhost/repository.spotify.com stable non-free
+
+# vscode
+deb [arch=amd64] http://localhost/packages.microsoft.com/repos/vscode stable main
+
+# nvidia
+# deb [arch=amd64] http://localhost/nvidia.github.io/libnvidia-container/ubuntu18.04/amd64 /
+# deb [arch=amd64] http://localhost/nvidia.github.io/nvidia-container-runtime/ubuntu18.04/amd64 /
+# deb [arch=amd64] http://localhost/nvidia.github.io/nvidia-docker/ubuntu18.04/amd64 /
+
+# popos
+deb [arch=amd64] http://localhost/apt.pop-os.org/proprietary bionic main
+#deb [arch=all] http://localhost/apt.pop-os.org/proprietary bionic main
+
+# hmi
+deb [arch=amd64] http://localhost/artifact.hmech.us/artifactory/hmi-debian bionic stable
+
+# flatpak
+deb [arch=amd64] http://localhost/ppa.launchpad.net/alexlarsson/flatpak/ubuntu bionic main
+deb-src [arch=amd64] http://localhost/ppa.launchpad.net/alexlarsson/flatpak/ubuntu bionic main
+#
+# chrome
+deb [arch=amd64] http://localhost/dl.google.com/linux/chrome/deb stable main
+
+# keybase
+deb [arch=amd64] http://localhost/prerelease.keybase.io/deb stable main
+
+# numix
+deb [arch=amd64] http://localhost/ppa.launchpad.net/numix/ppa/ubuntu bionic main
+deb-src [arch=amd64] http://localhost/ppa.launchpad.net/numix/ppa/ubuntu bionic main
+
+# keepassxc
+deb [arch=amd64] http://localhost/ppa.launchpad.net/phoerious/keepassxc/ubuntu bionic main
+deb-src [arch=amd64] http://localhost/ppa.launchpad.net/phoerious/keepassxc/ubuntu bionic main
+
+# zabbix (network monitoring, probably IT)
+deb [arch=amd64] http://localhost/repo.zabbix.com/zabbix/4.4/ubuntu bionic main
+deb-src [arch=amd64] http://localhost/repo.zabbix.com/zabbix/4.4/ubuntu bionic main
+
+# regolith
+deb [arch=amd64] http://localhost/ppa.launchpad.net/regolith-linux/release/ubuntu bionic main
+deb-src [arch=amd64] http://localhost/ppa.launchpad.net/regolith-linux/release/ubuntu bionic main
