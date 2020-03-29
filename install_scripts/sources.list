@@ -61,3 +61,6 @@ deb-src [arch=amd64] http://localhost/repo.zabbix.com/zabbix/4.4/ubuntu bionic m
 # regolith
 deb [arch=amd64] http://localhost/ppa.launchpad.net/regolith-linux/release/ubuntu bionic main
 deb-src [arch=amd64] http://localhost/ppa.launchpad.net/regolith-linux/release/ubuntu bionic main
+
+# syncthing
+deb [arch=amd64] http://localhost/apt.syncthing.net syncthing stable
