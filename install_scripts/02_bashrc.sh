@@ -9,7 +9,7 @@ echo "export GITAWAREPROMPT=~/.bash/git-aware-prompt" >> ${HOME}/.bashrc
 echo 'source "${GITAWAREPROMPT}/main.sh"' >> ${HOME}/.bashrc
 
 # diff-so-fancy (git)
-echo 'export PATH=${HOME}/dotfiles/diff-so-fancy:${PATH}' >> ${HOME}/.bashrc
+ln -s ${HOME}/dotfiles/diff-so-fancy/diff-so-fancy ${HOME}/.local/bin/diff-so-fancy
 
 # gitconfig
 ln -s ${HOME}/dotfiles/.gitconfig ${HOME}/.gitconfig
