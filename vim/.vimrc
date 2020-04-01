@@ -31,6 +31,9 @@ Plug 'cespare/vim-toml'
 " devdocs.io integration
 Plug 'rhysd/devdocs.vim'
 
+" taglist
+Plug 'vim-scripts/taglist.vim'
+
 call plug#end()
 
 " show tabs and trailing spaces
@@ -141,3 +144,10 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" taglist
+filetype plugin on
+nnoremap <silent> <F8> :TlistToggle<CR>
+let Tlist_GainFocus_On_ToggleOpen = 1
+"let Tlist_Close_On_Select = 1
+let Tlist_Use_SingleClick = 1
