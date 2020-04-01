@@ -4,8 +4,7 @@ call plug#begin('~/.config/nvim/plugged')
 " this guy is awesome
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-"Plug 'junegunn/limelight.vim'
-"Plug 'junegunn/goyo.vim'
+Plug 'junegunn/vim-easy-align'
 
 " can't not use this theme
 Plug 'liuchengxu/space-vim-theme'
@@ -135,3 +134,10 @@ set equalprg=xmllint\ --format\ -
 
 " devdocs remap K to search under cursor
 nmap K <Plug>(devdocs-under-cursor)
+
+" vim-easy-align
+" " Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
