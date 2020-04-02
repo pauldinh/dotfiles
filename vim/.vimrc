@@ -151,3 +151,8 @@ nnoremap <silent> <F8> :TlistToggle<CR>
 let Tlist_GainFocus_On_ToggleOpen = 1
 "let Tlist_Close_On_Select = 1
 let Tlist_Use_SingleClick = 1
+
+" ctags
+" look in current directory for tags and continue walk up directories until
+" it's found
+set tags=./tags;/
