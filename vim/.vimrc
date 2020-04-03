@@ -115,20 +115,14 @@ if exists('+termguicolors')
   set termguicolors
 endif
 let g:eleline_powerline_fonts = 1
+let g:eleline_slim = 1
 set laststatus=2
-
 
 " notational velocity
 let g:nv_search_paths = ['~/notes']
 let g:nv_use_short_pathnames = 1
-let g:nv_default_extension = '.adoc'
+let g:nv_default_extension = '.md'
 
-" goyo + limelight, nice writing
-"autocmd! User GoyoEnter Limelight
-"autocmd! User GoyoLeave Limelight!
-"let g:limelight_conceal_ctermfg = 240
-"let g:limelight_conceal_guifg = '#777777'
-"
 " saving file as root
 cmap w!! %!sudo tee > /dev/null %
 
