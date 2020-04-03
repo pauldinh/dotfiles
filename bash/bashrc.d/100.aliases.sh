@@ -9,6 +9,3 @@ alias sbrc='source ~/.bashrc'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-
-bind -r "\C-l"
-bind '"\C-n": clear-screen'
