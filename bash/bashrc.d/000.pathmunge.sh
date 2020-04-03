@@ -1,9 +1,11 @@
+# $ pathmunge <path>       : PATH=<path>:$PATH
+# $ pathmunge <path> after : PATH=$PATH:<path>
 pathmunge () {
-        if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
-           if [ "$2" = "after" ] ; then
-              PATH="$PATH:$1"
-           else
-              PATH="$1:$PATH"
-           fi
+    if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
+        if [ "$2" = "after" ] ; then
+            PATH="$PATH:$1"
+        else
+            PATH="$1:$PATH"
         fi
+    fi
 }

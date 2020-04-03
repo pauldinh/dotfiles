@@ -1,5 +1,3 @@
-#!/bin/bash
-
 # show remote branches, sorted by recent activity
 alias gb="git for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)' refs/remotes"
 
