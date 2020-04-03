@@ -31,7 +31,7 @@ deb [arch=amd64] http://localhost/packages.microsoft.com/repos/vscode stable mai
 
 # popos
 deb [arch=amd64] http://localhost/apt.pop-os.org/proprietary bionic main
-#deb [arch=all] http://localhost/apt.pop-os.org/proprietary bionic main
+# deb [arch=all] http://localhost/apt.pop-os.org/proprietary bionic main
 
 # hmi
 deb [arch=amd64] http://localhost/artifact.hmech.us/artifactory/hmi-debian bionic stable
@@ -64,3 +64,7 @@ deb-src [arch=amd64] http://localhost/ppa.launchpad.net/regolith-linux/release/u
 
 # syncthing
 deb [arch=amd64] http://localhost/apt.syncthing.net syncthing stable
+
+# git core
+deb [arch=amd64] http://localhost/ppa.launchpad.net/git-core/ppa/ubuntu bionic main
+# deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu bionic main
