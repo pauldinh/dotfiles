@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # get dependencies
-sudo apt install libevent-dev libncurses5-dev urlview
+sudo apt install libevent-dev libncurses5-dev urlview xsel
 
 # tmux
 cwd=$(pwd)
@@ -23,4 +23,4 @@ ln -sf ${HOME}/.tmux/.tmux.conf ~/.tmux.conf # TODO a921
 ln -sf ${HOME}/dotfiles/tmux/tmux.conf.local ${HOME}/.tmux.conf.local # TODO a921
 
 # clone tpm plugins into .tmux: https://github.com/gpakosz/.tmux/pull/216
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
