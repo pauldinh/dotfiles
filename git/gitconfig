@@ -1,6 +1,6 @@
 [user]
-    name = Paul Dinh
-    email = paul.dinh@gmail.com
+    #name = Paul Dinh  # TODO n781
+    #email = paul.dinh@gmail.com
 [pager]
     branch = false
     tag = false
@@ -24,3 +24,26 @@
     old = red bold
     new = green bold
     whitespace = red reverse
+[alias]
+    root = rev-parse --show-toplevel
+
+    co = checkout
+    st = status
+
+    p = remote update -p; git merge --ff-only @{u}'
+
+    lg = log -m --simplify-merges --color --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%ar) %Cblue%an <%ae>%Creset' --abbrev-commit --date=relative
+    l = log -m --simplify-merges --color --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %Cblue%an <%ae>%Creset' --abbrev-commit --date=relative
+    head = !git l -1
+    h = !git head
+    r = !git l -20
+    ra = !git r --all
+
+    b = for-each-ref --sort=-committerdate --format='%(committerdate:short) %(refname:short)' refs/remotes
+    brc = branch --contains
+    brm = branch -r --merged
+    brt = branch --track
+    brup = branch --set-upstream
+    brclean = !git branch --merged | egrep -v '(^\\*|master|dev)' | xargs git branch -d
+
+    fsize = !git ls-tree -r -t -l --full-name HEAD | sort -rn -k 4 | less
