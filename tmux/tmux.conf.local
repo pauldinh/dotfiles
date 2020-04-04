@@ -316,10 +316,10 @@ set  -g default-terminal "tmux-256color"
 set -ag terminal-overrides ",alacritty:RGB"
 
 # rebind clear-history / refresh screen
-bind -n C-[ send-keys C-l \; run 'sleep 0.1' \; clear-history
+bind -n C-b send-keys C-l \; run 'sleep 0.1' \; clear-history
 
-## https://www.bugsnag.com/blog/tmux-and-vim
-## don't steal ctrl-j/k from fzf
+# https://www.bugsnag.com/blog/tmux-and-vim
+# don't steal ctrl-j/k from fzf
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
 | grep -iqE '^[^TXZ ]+ +(\\S+\\/)?g?(view|n?vim?x?)(diff)?$'"
 
