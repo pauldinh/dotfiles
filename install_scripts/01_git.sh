@@ -10,5 +10,9 @@ ln -s ${HOME}/dotfiles/git/diff-so-fancy ${HOME}/.local/bin/diff-so-fancy # TODO
 
 # gitconfig
 # copy gitconfig instead of symlink cause default email may change
-cp ${HOME}/dotfiles/git/gitconfig ${HOME}/.gitconfig # TODO a921, n781
+ln -s ${HOME}/dotfiles/git/gitconfig ${HOME}/.gitconfig # TODO a921
 ln -s ${HOME}/dotfiles/git/gitignore_global ${HOME}/.gitignore_global # TODO a921
+
+# gitconfig links to separate git-user file
+# cp git-user file instead of symlink since this could change based on context
+cp ${HOME}/dotfiles/git/git-user ${HOME}/.git-user
