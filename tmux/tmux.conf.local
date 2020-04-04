@@ -250,12 +250,11 @@ tmux_conf_battery_vbar_palette='gradient'
 #tmux_conf_battery_vbar_palette='#d70000,#ff5f00,#5fff00'  # red, orange, green
 
 # symbols used to indicate whether battery is charging or discharging
-tmux_conf_battery_status_charging='↑'       # U+2191
-tmux_conf_battery_status_discharging='↓'    # U+2193
+#tmux_conf_battery_status_charging='↑'       # U+2191
+#tmux_conf_battery_status_discharging='↓'    # U+2193
 #tmux_conf_battery_status_charging='⚡ '    # U+26A1
-#tmux_conf_battery_status_charging='🔌 '    # U+1F50C
-#tmux_conf_battery_status_discharging='🔋 ' # U+1F50B
-#tmux_conf_battery_status_discharging='🔋' # U+1F50B
+tmux_conf_battery_status_charging='🔌 '    # U+1F50C
+tmux_conf_battery_status_discharging='🔋 ' # U+1F50B
 
 # clock style (when you hit <prefix> + t)
 # you may want to use %I:%M %p in place of %R in tmux_conf_theme_status_right
@@ -276,20 +275,16 @@ tmux_conf_copy_to_os_clipboard=true
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
-# must have tpm plugins cloned in .tmux: https://github.com/gpakosz/.tmux/pull/216
-#set -g @plugin 'tmux-plugins/tpm'
-#set -g @plugin 'tmux-plugins/tmux-continuum'
-#set -g @plugin 'tmux-plugins/tmux-copycat'
-#set -g @plugin 'tmux-plugins/tmux-fpp'
-#set -g @plugin 'tmux-plugins/tmux-resurrect'
-#set -g @plugin 'tmux-plugins/tmux-urlview'
-#set -g @plugin 'tmux-plugins/tmux-yank'
-
-# tmux-resurrect, optional restore pane contents
-set -g @resurrect-capture-pane-contents 'on'
-
 # increase history size
 set -g history-limit 50000
+
+# start with mouse mode enabled
+#set -g mouse on
+
+# force Vi mode
+#   really you should export VISUAL or EDITOR environment variable, see manual
+#set -g status-keys vi
+#set -g mode-keys vi
 
 # replace C-b by C-a instead of using both prefixes
 set -gu prefix2
@@ -297,6 +292,9 @@ unbind C-a
 unbind C-b
 set -g prefix C-a
 bind C-a send-prefix
+
+# move status line to top
+#set -g status-position top
 
 # bind urlview to u since U is to update plugins in tpm
 bind u run "cut -c3- ~/.tmux.conf | sh -s _urlview #{pane_id}"
@@ -308,7 +306,7 @@ set -g aggressive-resize on
 set -g status-interval 5
 
 # fix vim escape time
-set -sg escape-time 0
+set -sg escape-time 10
 
 # n'sync
 bind n set -g synchronize-panes
@@ -343,6 +341,3 @@ bind -n C-l run  "($is_vim && tmux send-keys C-l) || \
                           tmux select-pane -R"
 
 bind-key -n 'C-\' if-shell "$is_vim" "send-keys C-\\" "select-pane -l"
-
-# initialize tpm, this MUST be at the bottom
-# run '~/.tmux/plugins/tpm/tpm'
