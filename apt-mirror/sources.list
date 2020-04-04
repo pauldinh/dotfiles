@@ -68,3 +68,7 @@ deb [arch=amd64] http://localhost/apt.syncthing.net syncthing stable
 # git core
 deb [arch=amd64] http://localhost/ppa.launchpad.net/git-core/ppa/ubuntu bionic main
 # deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu bionic main
+
+# nextcloud
+deb [arch=amd64] http://localhost/ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main
+# deb-src http://ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main

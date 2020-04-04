@@ -115,3 +115,8 @@ clean https://apt.syncthing.net syncthing stable
 deb http://ppa.launchpad.net/git-core/ppa/ubuntu bionic main
 # deb-src http://ppa.launchpad.net/git-core/ppa/ubuntu bionic main
 clean http://ppa.launchpad.net/git-core/ppa/ubuntu
+
+# nextcloud
+deb http://ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main
+# deb-src http://ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main
+clean http://ppa.launchpad.net/nextcloud-devs/client/ubuntu
