@@ -1,12 +1,12 @@
 [user]
     name = Paul Dinh
-    email = pdinh@houstonmechatronics.com
+    email = paul.dinh@gmail.com
 [pager]
     branch = false
     tag = false
 [core]
     pager = diff-so-fancy | less --tabs=4 -RFX
-    excludesfile = /home/pdinh/.gitignore_global
+    excludesfile = ${HOME}/.gitignore_global
 ; https://github.com/so-fancy/diff-so-fancy
 ; simply defining color.ui causes vcstool to not display colors when doing vcs status
 ; not defining it but doing the rest per the readme still makes diff-so-fancy pretty

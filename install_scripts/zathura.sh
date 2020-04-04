@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cwd=$(pwd)
+
 export ZATHURA_HOME=$HOME/src/zathura
 mkdir -p $ZATHURA_HOME
 wget -P $ZATHURA_HOME https://pwmt.org/projects/zathura/download/zathura-0.4.5.tar.xz
@@ -22,3 +24,5 @@ sudo apt install libpoppler-glib-dev
 meson ..
 ninja
 sudo ninja install
+
+cd $cwd

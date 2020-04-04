@@ -1,16 +1,19 @@
 #!/bin/bash
 
-echo "source ${HOME}/dotfiles/bash/.bash_profile" >> ${HOME}/.bashrc
+if [ -f ~/dotfiles/bash/bashrc ]; then # TODO a921
 
-# git-aware-prompt
-mkdir -p ${HOME}/.bash && cd ${HOME}/.bash
-git clone https://github.com/pauldinh/git-aware-prompt.git
-echo "export GITAWAREPROMPT=~/.bash/git-aware-prompt" >> ${HOME}/.bashrc
-echo 'source "${GITAWAREPROMPT}/main.sh"' >> ${HOME}/.bashrc
+    if [ -f ~/.bashrc ]; then
+        cp ~/.bashrc ~/.bashrc_old
+    fi
 
-# diff-so-fancy (git)
-ln -s ${HOME}/dotfiles/diff-so-fancy/diff-so-fancy ${HOME}/.local/bin/diff-so-fancy
+    cp ~/dotfiles/bash/bashrc ~/.bashrc # TODO a921
+fi
 
-# gitconfig
-ln -s ${HOME}/dotfiles/.gitconfig ${HOME}/.gitconfig
-ln -s ${HOME}/dotfiles/.gitignore_global ${HOME}/.gitignore_global
+if [ -f ~/dotfiles/bash/profile ]; then # TODO a921
+
+    if [ -f ~/.profile ]; then
+        cp ~/.profile ~/.profile_old
+    fi
+
+    cp ~/dotfiles/bash/profile ~/.profile # TODO a921
+fi

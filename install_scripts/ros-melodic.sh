@@ -20,8 +20,3 @@ sudo apt install \
     build-essential \
     python-catkin-tools \
     python3-vcstool
-
-# vcstool auto-completion
-echo 'source /usr/share/vcstool-completion/vcs.bash' >> ${HOME}/.bashrc
-
-echo 'export ROS_PYTHON_VERSION=2' >> ${HOME}/.bashrc
