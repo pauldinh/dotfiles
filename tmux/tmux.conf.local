@@ -306,7 +306,7 @@ set -g aggressive-resize on
 set -g status-interval 5
 
 # fix vim escape time
-set -sg escape-time 10
+set -sg escape-time 0
 
 # n'sync
 bind n set -g synchronize-panes
@@ -316,7 +316,7 @@ set  -g default-terminal "tmux-256color"
 set -ag terminal-overrides ",alacritty:RGB"
 
 # rebind clear-history / refresh screen
-bind -n C-b send-keys C-l \; run 'sleep 0.1' \; clear-history
+bind g send-keys C-l \; run 'sleep 0.1' \; clear-history
 
 # https://www.bugsnag.com/blog/tmux-and-vim
 # don't steal ctrl-j/k from fzf

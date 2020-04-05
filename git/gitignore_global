@@ -11,8 +11,5 @@ tags
 bin/
 build/
 lib/
-docs/
 msg_gen/
 srv_gen/
-
-local-melodic-nvidia/
