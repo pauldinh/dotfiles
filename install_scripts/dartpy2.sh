@@ -9,6 +9,7 @@ sudo apt-get install libnlopt-dev
 
 cwd=$(pwd)
 
+# pybind for Ubuntu 18.10 or lower
 cd /tmp
 git clone https://github.com/pybind/pybind11 -b 'v2.2.4' --single-branch --depth 1
 cd pybind11
@@ -18,6 +19,15 @@ cmake .. -DCMAKE_BUILD_TYPE=Release -DPYBIND11_TEST=OFF
 make -j8
 sudo make install
 
-cd $cwd
+# compile dartpy from source (pip install for python2 only works in 19.04+)
+cd /tmp
+git clone git://github.com/dartsim/dart.git
+cd dart
+git checkout tags/v6.9.0
+mkdir build
+cd build
+cmake .. -DDART_BUILD_DARTPY=ON -DCMAKE_INSTALL_PREFIX=/usr/ -DCMAKE_BUILD_TYPE=Release -DDARTPY_PYTHON_VERSION=2.7
+make dartpy
+sudo make install
 
-sudo -H pip2 install dartpy
+cd $cwd
