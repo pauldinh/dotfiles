@@ -16,3 +16,6 @@ ln -s ${HOME}/dotfiles/git/gitignore_global ${HOME}/.gitignore_global # TODO a92
 # gitconfig links to separate git-user file
 # cp git-user file instead of symlink since this could change based on context
 cp ${HOME}/dotfiles/git/git-user ${HOME}/.git-user
+
+# fancy bash prompt
+git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
