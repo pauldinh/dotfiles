@@ -29,7 +29,7 @@
     co = checkout
     st = status
 
-    p = remote update -p; git merge --ff-only @{u}'
+    #p = remote update -p;git merge --ff-only @{u}"
 
     lg = log -m --simplify-merges --color --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%ar) %Cblue%an <%ae>%Creset' --abbrev-commit --date=relative
     l = log -m --simplify-merges --color --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %Cblue%an <%ae>%Creset' --abbrev-commit --date=relative
