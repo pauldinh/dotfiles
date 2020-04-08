@@ -32,7 +32,10 @@ Plug 'cespare/vim-toml'
 Plug 'rhysd/devdocs.vim'
 
 " taglist
-Plug 'vim-scripts/taglist.vim'
+" Plug 'vim-scripts/taglist.vim'
+
+" tagbar (better than taglist?)
+Plug 'majutsushi/tagbar'
 
 " ctrlp
 Plug 'ctrlpvim/ctrlp.vim'
@@ -143,11 +146,16 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " taglist
-filetype plugin on
-nnoremap <silent> <F8> :TlistToggle<CR>
-let Tlist_GainFocus_On_ToggleOpen = 1
-"let Tlist_Close_On_Select = 1
-let Tlist_Use_SingleClick = 1
+"filetype plugin on
+"nnoremap <silent> <F8> :TlistToggle<CR>
+"let Tlist_GainFocus_On_ToggleOpen = 1
+""let Tlist_Close_On_Select = 1
+"let Tlist_Use_SingleClick = 1
+
+" ctrlp
+nnoremap <leader>. :CtrlPTag<cr>
+" tagbar
+nnoremap <silent> <Leader>b :TagbarToggle<CR>
 
 " ctags
 " look in current directory for tags and continue walk up directories until
