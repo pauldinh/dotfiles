@@ -6,4 +6,5 @@ sudo apt install \
     ncdu \
     meld \
     tig \
-    gitg
+    gitg \
+    flatpak
