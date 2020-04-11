@@ -72,3 +72,7 @@ deb [arch=amd64] http://localhost/ppa.launchpad.net/git-core/ppa/ubuntu bionic m
 # nextcloud
 deb [arch=amd64] http://localhost/ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main
 # deb-src http://ppa.launchpad.net/nextcloud-devs/client/ubuntu bionic main
+
+# sublime text
+deb [arch=amd64] http://localhost/download.sublimetext.com/ apt/stable/
+# deb-src https://download.sublimetext.com/ apt/stable/
