@@ -14,9 +14,5 @@ curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https:/
 # mkdir for notational velocity (note taking)
 mkdir -p ${HOME}/notes # TODO a921
 
-# symlink .vimrc
-mkdir -p ${HOME}/.config/nvim
-ln -s ${HOME}/dotfiles/vim/vimrc ${HOME}/.config/nvim/init.vim # TODO a921
-
 # clipboard bs for ubuntu
 sudo apt install xclip
