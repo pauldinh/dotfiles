@@ -168,7 +168,7 @@ if [ -f ~/.fzf.bash ]; then
     #     dexec bash -l c "rosrun ljc ljc_simple"
     function dexec() {
       local cid
-      cid = $(docker ps | sed 1d | fzf --height 40% -q "$1" | awk '{print $1}')
+      cid = $(docker ps | sed 1d | fzf --height 40% -q "$2" | awk '{print $1}')
       [ -n "$cid" ] && docker exec -t "$cid" $1
     }
 
@@ -177,7 +177,7 @@ if [ -f ~/.fzf.bash ]; then
     # ex: dexeci htop
     function dexec() {
       local cid
-      cid=$(docker ps | sed 1d | fzf --height 40% -q "$1" | awk '{print $1}')
+      cid=$(docker ps | sed 1d | fzf --height 40% -q "$2" | awk '{print $1}')
       [ -n "$cid" ] && docker exec -ti "$cid" $1
     }
 
@@ -189,6 +189,43 @@ if [ -f ~/.fzf.bash ]; then
       [ -n "$cid" ] && docker exec -ti "$cid" /bin/bash
     }
 
+    # dfzi - docker fzf wrapper for any command that takes an image as
+    #        an argument AND no additional args after
+    # Usage: $ dfzi COMMAND [SEARCH STRING]
+    #    ex: $ dfzi pull ubuntu - start fzf with "ubuntu" as the query string
+    #        and execute "docker pull <selected image>"
+    function dfzi() {
+      local cid
+      cid=$(docker images | fzf --header-lines 1 --reverse -q "$2" | awk '{print $1}')
+      [ -n "$cid" ] && docker $1 "$cid"
+    }
+
+    # dfzih - dfzih(ash) same as dfzi but will insert the image id
+    function dfzih() {
+      local cid
+      cid=$(docker images | fzf --header-lines 1 --reverse -q "$2" | awk '{print $3}')
+      [ -n "$cid" ] && docker $1 "$cid"
+    }
+
+    # dfzp - docker fzf wrapper for any command that takes a container as
+    #        an argument AND no additional args after
+    # Usage: $ dfzp COMMAND [SEARCH STRING]
+    #    ex: $ dfzp rm einstein - start fzf with "einstein" as the query string
+    #        and execute "docker rm <selected image>"
+    function dfzp() {
+      local cid
+      local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
+      cid=$(docker ps -a --format "$fmtstring" | fzf --header-lines 1 --reverse -q "$2" | awk '{print $1}')
+      [ -n "$cid" ] && docker $1 "$cid"
+    }
+
+    # dfzph - dfzph(ash) same as dfzp but will insert the container id
+    function dfzph() {
+      local cid
+      local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
+      cid=$(docker ps -a --format "$fmtstring" | fzf --header-lines 1 --reverse -q "$2" | awk '{print $4}')
+      [ -n "$cid" ] && docker $1 "$cid"
+    }
 
     # fman - search available man files with fzf and awk
     fman() {
