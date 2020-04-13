@@ -8,7 +8,7 @@ set list listchars=tab:▸\ ,trail:_
 set tabstop=4 shiftwidth=4 expandtab
 
 " relative line numbers cause math is hard
-set relativenumber cursorline
+set number relativenumber cursorline
 
 " visually wrap long lines but don't insert newlines into them
 set wrap textwidth=0
