@@ -125,3 +125,8 @@ clean http://ppa.launchpad.net/nextcloud-devs/client/ubuntu
 deb [arch=amd64] https://download.sublimetext.com/ apt/stable/
 # deb-src https://download.sublimetext.com/ apt/stable/
 clean https://download.sublimetext.com
+
+# system76
+deb http://ppa.launchpad.net/system76-dev/stable/ubuntu bionic main
+# deb-src http://ppa.launchpad.net/system76-dev/stable/ubuntu bionic main
+clean http://ppa.launchpad.net/system76-dev/stable/ubuntu
