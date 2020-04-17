@@ -36,6 +36,19 @@ if [ -f ~/.fzf.bash ]; then
     # all of these are bound to Ctrl Foo + Ctrl Bar, where Foo and Bar are keystrokes
     # all of these are bound to keystrokes (ignore first g) e.g. ggf is Ctrl G + Ctrl F
 
+    # Ctrl F + Ctrl T - *T*opics
+    gft() {
+      rostopic list |
+      #fzf-down -m --ansi --nth 2..,.. --preview '(rostopic info {})'
+      fzf-down --no-height --info hidden --preview '(rostopic echo {} -n1)'
+    }
+
+    # Ctrl F + Ctrl V - Ser*v*ics
+    gfv() {
+      rosservice list |
+      fzf-down -m --ansi --nth 2..,.. --preview '(rosservice info {})'
+    }
+
     # dirty files
     ggf() {
       is_in_git_repo || return
@@ -111,6 +124,9 @@ if [ -f ~/.fzf.bash ]; then
       # Extra
       bind '"\C-g\C-p": "$(ggp)\e\C-e\er"'
       bind '"\C-g\C-u": "$(ggu)\e\C-e\er"'
+
+      bind '"\C-f\C-t": "$(gft)\e\C-e\er"'
+      bind '"\C-f\C-v": "$(gfv)\e\C-e\er"'
     fi
 
 
@@ -181,11 +197,9 @@ if [ -f ~/.fzf.bash ]; then
       [ -n "$cid" ] && docker exec -ti "$cid" $1
     }
 
-
-    # dbash - convenience function to exec bash on a running container
-    function dbash() {
-      local cid
-      cid=$(docker ps | sed 1d | fzf --height 40% -q "$1" | awk '{print $1}')
+    enter() {
+      local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
+      cid=$(docker ps --format "$fmtstring" | fzf-down --header-lines 1 --reverse -q "$1" | awk '{print $1}')
       [ -n "$cid" ] && docker exec -ti "$cid" /bin/bash
     }
 
