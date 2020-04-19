@@ -6,8 +6,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'alok/notational-fzf-vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'liuchengxu/space-vim-theme'
-Plug 'liuchengxu/eleline.vim'
+Plug 'challenger-deep-theme/vim', { 'as': 'challenger-deep' }
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'cespare/vim-toml'
 Plug 'rhysd/devdocs.vim'
@@ -25,9 +25,11 @@ runtime settings-syntax.vimrc
 
 runtime ctags.vimrc
 runtime devdocs.vimrc
-runtime eleline.vimrc
 runtime fzf.vimrc
+runtime lightline.vimrc
 runtime notational-fzf.vimrc
-runtime space-vim-theme.vimrc
 runtime vim-easy-align.vimrc
 runtime xmllint.vimrc
+
+" set themes last
+runtime challenger-deep-theme.vimrc
