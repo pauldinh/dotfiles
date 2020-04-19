@@ -1,8 +1,9 @@
 [include]
     path = ~/.git-user
-[pager]
-    branch = false
-    tag = false
+; looks like default pager behavior reverted, this may not be necessary anymore
+; [pager]
+;     branch = false
+;     tag = false
 [core]
     pager = diff-so-fancy | less --tabs=4 -RFX
     excludesfile = ~/.gitignore_global
@@ -12,7 +13,7 @@
 ;[color]
 ;    ui = true
 [color "diff-highlight"]
-    oldNormal = red bold
+	oldNormal = red bold
     oldHighlight = red bold 52
     newNormal = green bold
     newHighlight = green bold 22
@@ -46,3 +47,13 @@
     brclean = !git branch --merged | egrep -v '(^\\*|master|dev)' | xargs git branch -d
 
     fsize = !git ls-tree -r -t -l --full-name HEAD | sort -rn -k 4 | less
+
+# define command which will be used when "nvim" is set as a merge tool
+[mergetool "nvim"]
+  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+# set "nvim" as tool for merging
+[merge]
+  tool = nvim
+# automatically launch merge tool without displaying a prompt
+[mergetool]
+  prompt = false
