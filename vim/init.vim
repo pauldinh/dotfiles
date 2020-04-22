@@ -18,6 +18,8 @@ Plug 'unblevable/quick-scope'
 " use ctrl-hjkl to seamlessly navigate vim/tmux panes within tmux sessions
 Plug 'christoomey/vim-tmux-navigator'
 
+Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
+
 call plug#end()
 
 runtime settings.vimrc
@@ -30,6 +32,7 @@ runtime lightline.vimrc
 runtime notational-fzf.vimrc
 runtime vim-easy-align.vimrc
 runtime xmllint.vimrc
+runtime aerojump.vimrc
 
 " set themes last
 runtime challenger-deep-theme.vimrc
