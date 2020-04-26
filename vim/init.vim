@@ -17,9 +17,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'unblevable/quick-scope'
 " use ctrl-hjkl to seamlessly navigate vim/tmux panes within tmux sessions
 Plug 'christoomey/vim-tmux-navigator'
-
 Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
-
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 call plug#end()
 
 runtime settings.vimrc

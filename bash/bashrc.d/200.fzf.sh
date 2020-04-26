@@ -128,10 +128,13 @@ if [ -f ~/.fzf.bash ]; then
       cut -d: -f1
     }
 
-    # works in non-git directories - pids
     ggp() {
-      ps -ef | fzf-down --header-lines 1 --info inline --layout reverse --multi |
-        awk '{print $2}'
+      local pid
+      pid=$(ps -ef | fzf-down --header-lines 1 --info inline --layout reverse --multi |awk '{print $2}')
+
+      if [ -n "$pid" ]; then
+          echo $pid | xargs kill -9
+      fi
     }
 
     # works in non-git directories - z with scores, ordered in descending order
@@ -222,7 +225,7 @@ if [ -f ~/.fzf.bash ]; then
       local line
       shopt -u nocaseglob nocasematch
       line=$(
-        cat $HOME/.fzf_snippets |
+        cat $HOME/.fzf-snippets |
         FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS +m" $(__fzfcmd) |
         awk -F"#" ' { print $1 }' ) &&
         if [[ $- =~ H ]]; then

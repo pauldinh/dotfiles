@@ -42,3 +42,6 @@ noremap <Right> <nop>
 
 " saving file as root
 cmap w!! %!sudo tee > /dev/null %
+
+" allows cursor insertion after last character and pads spaces
+set virtualedit=all
