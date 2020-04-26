@@ -11,8 +11,5 @@ sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 60
 # vim-plug
 curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-# mkdir for notational velocity (note taking)
-mkdir -p ${HOME}/notes # TODO a921
-
 # clipboard bs for ubuntu
 sudo apt install xclip
