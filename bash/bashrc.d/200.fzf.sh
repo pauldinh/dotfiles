@@ -68,6 +68,15 @@ if [ -f ~/.fzf.bash ]; then
               --preview '(rosparam get -p {} | bat)'
     }
 
+    # keybinds for git + fzf
+    if [[ $- =~ i ]]; then
+      bind '"\er": redraw-current-line'
+
+      bind '"\C-f\C-t": "$(gft)\e\C-e\er"'
+      bind '"\C-f\C-v": "$(gfv)\e\C-e\er"'
+      bind '"\C-f\C-p": "$(gfp)\e\C-e\er"'
+    fi
+
     # dirty files
     ggf() {
       is_in_git_repo || return
@@ -183,84 +192,6 @@ if [ -f ~/.fzf.bash ]; then
     }
 
 
-    # dstart - start a container
-    function dstart() {
-      local cid
-      cid=$(docker ps -a | sed 1d | fzf --height 40% -q "$1" | awk '{print $1}')
-      [ -n "$cid" ] && docker start "$cid"
-    }
-
-
-    # dattach - attach to a container, starting it if necessary
-    function dattach() {
-      local cid
-      cid=$(docker ps -a | sed 1d | fzf --height 40% -q "$1" | awk '{print $1}')
-      [ -n "$cid" ] && docker start "$cid" && docker attach "$cid"
-    }
-
-
-    # dexec - exec a command on a running container
-    # ex: dexec date
-    #     dexec bash -l c "rosrun ljc ljc_simple"
-    function dexec() {
-      local cid
-      cid = $(docker ps | sed 1d | fzf --height 40% -q "$2" | awk '{print $1}')
-      [ -n "$cid" ] && docker exec -t "$cid" $1
-    }
-
-
-    # dexeci - exec a command on a running container, interactively
-    # ex: dexeci htop
-    function dexec() {
-      local cid
-      cid=$(docker ps | sed 1d | fzf --height 40% -q "$2" | awk '{print $1}')
-      [ -n "$cid" ] && docker exec -ti "$cid" $1
-    }
-
-    enter() {
-      local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
-      cid=$(docker ps --format "$fmtstring" | fzf-down --header-lines 1 --reverse -q "$1" | awk '{print $1}')
-      [ -n "$cid" ] && docker exec -ti "$cid" /bin/bash
-    }
-
-    # dfzi - docker fzf wrapper for any command that takes an image as
-    #        an argument AND no additional args after
-    # Usage: $ dfzi COMMAND [SEARCH STRING]
-    #    ex: $ dfzi pull ubuntu - start fzf with "ubuntu" as the query string
-    #        and execute "docker pull <selected image>"
-    function dfzi() {
-      local cid
-      cid=$(docker images | fzf --header-lines 1 --reverse -q "$2" | awk '{print $1}')
-      [ -n "$cid" ] && docker $1 "$cid"
-    }
-
-    # dfzih - dfzih(ash) same as dfzi but will insert the image id
-    function dfzih() {
-      local cid
-      cid=$(docker images | fzf --header-lines 1 --reverse -q "$2" | awk '{print $3}')
-      [ -n "$cid" ] && docker $1 "$cid"
-    }
-
-    # dfzp - docker fzf wrapper for any command that takes a container as
-    #        an argument AND no additional args after
-    # Usage: $ dfzp COMMAND [SEARCH STRING]
-    #    ex: $ dfzp rm einstein - start fzf with "einstein" as the query string
-    #        and execute "docker rm <selected image>"
-    function dfzp() {
-      local cid
-      local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
-      cid=$(docker ps -a --format "$fmtstring" | fzf --header-lines 1 --reverse -q "$2" | awk '{print $1}')
-      [ -n "$cid" ] && docker $1 "$cid"
-    }
-
-    # dfzph - dfzph(ash) same as dfzp but will insert the container id
-    function dfzph() {
-      local cid
-      local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
-      cid=$(docker ps -a --format "$fmtstring" | fzf --header-lines 1 --reverse -q "$2" | awk '{print $4}')
-      [ -n "$cid" ] && docker $1 "$cid"
-    }
-
     # fman - search available man files with fzf and awk
     fman() {
         man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
@@ -287,4 +218,71 @@ if [ -f ~/.fzf.bash ]; then
       fi
     )
 
+    __fzf_snippets__() (
+      local line
+      shopt -u nocaseglob nocasematch
+      line=$(
+        cat $HOME/.fzf_snippets |
+        FZF_DEFAULT_OPTS="--height ${FZF_TMUX_HEIGHT:-40%} $FZF_DEFAULT_OPTS --tac -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS +m" $(__fzfcmd) |
+        awk -F"#" ' { print $1 }' ) &&
+        if [[ $- =~ H ]]; then
+          sed 's/^ *\([0-9]*\)\** .*/!\1/' <<< "$line"
+        else
+          sed 's/^ *\([0-9]*\)\** *//' <<< "$line"
+        fi
+    )
+
+    create() {
+      local name
+      local container
+      name=$1
+      if [ -n "$name" ]; then
+          name="--name $name"
+      else
+          unset name
+      fi
+      container=$(docker images | fzf-down --header-lines 1 --reverse | awk '{image=$1":"$2;print image}')
+
+      [ -n "$container" ] && \
+          docker run -ti \
+            --gpus all \
+            --env="DISPLAY=$DISPLAY" \
+            --env="QT_X11_NO_MITSHM=1" \
+            --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+            --volume="/home/pdinh/.ssh:/root/.ssh:ro" \
+            --privileged --net=host \
+            $name \
+            $container
+    }
+
+    start() {
+      local fmstring
+      local container
+      fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
+      container=$(docker ps --filter "status=exited" --format "$fmtstring" | fzf-down --header-lines 1 --reverse | awk '{print $1}')
+      [ -n "$container" ] && docker start $container
+    }
+
+    enter() {
+      local fmtstring
+      local container
+      fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
+      container=$(docker ps --format "$fmtstring" | fzf-down --header-lines 1 --reverse -q "$1" | awk '{print $1}')
+      [ -n "$container" ] && docker exec -ti "$container" /bin/bash
+    }
+
+
+    # keybinds for git + fzf
+    if [[ $- =~ i ]]; then
+      bind '"\er": redraw-current-line'
+
+      bind '"\C-f\C-t": "$(gft)\e\C-e\er"'
+      bind '"\C-f\C-v": "$(gfv)\e\C-e\er"'
+      bind '"\C-f\C-p": "$(gfp)\e\C-e\er"'
+
+      # ALT-E - Paste the selected snippet from the ~/.fzf_snippets file. Ignores everything after #
+      #bind '"\ee": " \C-e\C-u`__fzf_snippets__`\e\C-e\e^\er"'
+      bind '"\ee": " \C-e\C-u`__fzf_snippets__`\e\C-e\er"'
+
+    fi
 fi
