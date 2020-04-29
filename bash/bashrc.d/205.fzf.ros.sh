@@ -7,8 +7,7 @@ if [ -f ~/.fzf.bash ]; then
                     --prompt 'rostopic> ' \
                     --header '[enter] to paste | ctrl + [e]cho or [p]ub' \
                     --bind 'ctrl-e:execute[echo rostopic echo {}]+abort' \
-                    --bind 'ctrl-p:execute[echo rostopic pub {} ; MSGTYPE=$(rostopic type {}); echo $MSGTYPE; ]+abort' \
-                    --preview '(rostopic info {})'
+                    --bind 'ctrl-p:execute[echo rostopic pub {} ; MSGTYPE=$(rostopic type {}); echo $MSGTYPE; ]+abort'
         }
 
         # Ctrl F + Ctrl V - Ser*v*ics
@@ -17,8 +16,7 @@ if [ -f ~/.fzf.bash ]; then
                 fzf \
                     --prompt 'rosservice> ' \
                     --header '[enter] to paste | ctrl + [p] to call' \
-                    --bind 'ctrl-p:execute[echo rosservice call {}]+abort' \
-                    --preview '(rosservice info {})'
+                    --bind 'ctrl-p:execute[echo rosservice call {}]+abort'
         }
 
         # Ctrl F - Ctrl P - *Parameters

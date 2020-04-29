@@ -62,7 +62,7 @@ if [ -f ~/.fzf.bash ]; then
           pid=$(ps -ef | fzf-down --header-lines 1 --info inline --layout reverse --multi |awk '{print $2}')
 
           if [ -n "$pid" ]; then
-              echo $pid | xargs kill -9
+              echo $pid | xargs sudo kill -9
           fi
         }
 
