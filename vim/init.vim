@@ -21,6 +21,7 @@ Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+Plug 'sbdchd/neoformat'
 call plug#end()
 
 runtime settings.vimrc
@@ -32,7 +33,6 @@ runtime fzf.vimrc
 runtime lightline.vimrc
 runtime notational-fzf.vimrc
 runtime vim-easy-align.vimrc
-runtime xmllint.vimrc
 runtime aerojump.vimrc
 
 " set themes last
