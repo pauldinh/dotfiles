@@ -1,6 +1,28 @@
 if [ -f ~/.fzf.bash ]; then
     if [ -d /opt/ros ]; then
 
+        # tldr
+        # keybinds will pipe `ros(topic|service|param) list` into fzf
+        # pressing enter in fzf prompt will paste current selection into terminal
+        # example:
+        # - type `rostopic info ` in terminal
+        # - ctrl-f,ctrl-t to show topic prompt
+        # - fuzzy search desired topic
+        # - hit enter
+        # - terminal will now have `rostopic info <your topic>`
+
+        # topic/service/param fzf prompts have additional keybindings
+
+
+        # (t)opics
+        # ctrl-f + ctrl-t
+        # additional keybinds at fzf prompt (instead of hitting enter)
+        # ctrl-e (*e*cho)
+        # - pipe `rostopic echo <selection>` into terminal
+        # - does not execute command to allow additional args e.g. "-n1" to echo a single message
+        # ctrl-p (*p*ublish)
+        # - pipe `rostopic pub <selection_topic> <topic_msg_type> ` into terminal
+        # - hit <tab> <tab> to autocomplete empty message
         gft() {
             rostopic list |
                 fzf \
@@ -10,16 +32,29 @@ if [ -f ~/.fzf.bash ]; then
                     --bind 'ctrl-p:execute[echo rostopic pub {} ; MSGTYPE=$(rostopic type {}); echo $MSGTYPE; ]+abort'
         }
 
-        # Ctrl F + Ctrl V - Ser*v*ics
+        # ser(v)ices
+        # ctrl-f + ctrl-v
+        # additional keybinds at fzf prompt (instead of hitting enter)
+        # ctrl-p (*p*ublish.. or how about *p*retend "publish" makes sense for services to keep it consistent with rostopic pub)
+        # - pipe `rosservice call <selection>` into terminal
+        # - hit <tab> <tab> to autocomplete empty message
         gfv() {
             rosservice list |
                 fzf \
                     --prompt 'rosservice> ' \
-                    --header '[enter] to paste | ctrl + [p] to call' \
+                    --header '[enter] to paste | ctrl + [p] to "[p]ub" (call)' \
                     --bind 'ctrl-p:execute[echo rosservice call {}]+abort'
         }
 
-        # Ctrl F - Ctrl P - *Parameters
+        # para(m)eters
+        # ctrl-f + ctrl-m
+        # additional keybinds at fzf prompt (instead of hitting enter)
+        # ctrl-g (*g*et)
+        # - pipe `rosparam get -p <selection>` into terminal
+        # - `-p` arg is for pretty-print, useful when getting urdf
+        # ctrl-t (se*t)
+        # - pipe `rosparam set <selection>` into terminal
+        # - up to you to fill out the rest of the command
         gfp() {
           rosparam list |
               fzf \
@@ -37,7 +72,7 @@ if [ -f ~/.fzf.bash ]; then
 
           bind '"\C-f\C-t": "$(gft)\e\C-e\er"'
           bind '"\C-f\C-v": "$(gfv)\e\C-e\er"'
-          bind '"\C-f\C-p": "$(gfp)\e\C-e\er"'
+          bind '"\C-f\C-m": "$(gfp)\e\C-e\er"'
         fi
 
     fi

@@ -29,7 +29,7 @@ if [ -f ~/.fzf.bash ]; then
         bind '"\er": redraw-current-line'
 
         bind '"\C-f\C-n": "$(fzf-snippet)\e\C-e\er"'
-        bind '"\C-f\C-m": "$(fzf-multisnippet)\e\C-e\er"'
+        bind '"\C-f\C-b": "$(fzf-multisnippet)\e\C-e\er"'
     fi
 
 fi
