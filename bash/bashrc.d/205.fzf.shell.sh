@@ -70,8 +70,7 @@ if [ -f ~/.fzf.bash ]; then
     )
     if [[ $- =~ i ]]; then
         # ALT-E - Paste the selected snippet from the ~/.fzf_snippets file. Ignores everything after #
-        #bind '"\ee": " \C-e\C-u`__fzf_snippets__`\e\C-e\e^\er"'
-        bind '"\ee": " \C-e\C-u`__fzf_snippets__`\e\C-e\er"'
+        bind '"\C-f\C-e": " \C-e\C-u`__fzf_snippets__`\e\C-e\er"'
     fi
 
     # fb - buku bookmark manager
