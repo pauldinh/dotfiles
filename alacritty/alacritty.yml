@@ -53,7 +53,7 @@ window:
     y: 2
   dynamic_padding: true
   decorations: none
-  startup_mode: Maximized
+  #startup_mode: Maximized
 
 scrolling:
   history: 100000
