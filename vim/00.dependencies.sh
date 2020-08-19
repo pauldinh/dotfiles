@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # neovim
-wget -P debs/  https://github.com/neovim/neovim/releases/download/v0.4.3/nvim.appimage
+wget -P debs/  https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
 chmod +x debs/nvim.appimage
 sudo mv debs/nvim.appimage /usr/local/bin/nvim
 sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 60

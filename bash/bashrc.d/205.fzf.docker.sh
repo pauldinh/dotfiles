@@ -19,6 +19,8 @@ if [ -f ~/.fzf.bash ]; then
                 --env="QT_X11_NO_MITSHM=1" \
                 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
                 --volume="/home/pdinh/.ssh:/root/.ssh:ro" \
+                --volume="/home/pdinh/.config/nvim:/root/.config/nvim:ro" \
+                --volume="/home/pdinh/dotfiles:/home/pdinh/dotfiles:ro" \
                 --privileged --net=host \
                 $name \
                 $container
