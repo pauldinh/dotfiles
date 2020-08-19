@@ -21,6 +21,7 @@ if [ -f ~/.fzf.bash ]; then
                 --volume="/home/pdinh/.ssh:/root/.ssh:ro" \
                 --volume="/home/pdinh/.config/nvim:/root/.config/nvim:ro" \
                 --volume="/home/pdinh/dotfiles:/home/pdinh/dotfiles:ro" \
+                --volume="/home/pdinh/dotfiles/bash/bashrc.d:/root/.bashrc.d:ro" \
                 --privileged --net=host \
                 $name \
                 $container
