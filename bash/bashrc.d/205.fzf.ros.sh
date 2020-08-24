@@ -27,9 +27,9 @@ if [ -f ~/.fzf.bash ]; then
             rostopic list |
                 fzf \
                     --prompt 'rostopic> ' \
-                    --header '[enter] to paste | ctrl + [e]cho or [p]ub' \
+                    --header '[enter] to paste | ctrl + [e]cho or p[u]b' \
                     --bind 'ctrl-e:execute[echo rostopic echo {}]+abort' \
-                    --bind 'ctrl-p:execute[echo rostopic pub {} ; MSGTYPE=$(rostopic type {}); echo $MSGTYPE; ]+abort'
+                    --bind 'ctrl-u:execute[echo rostopic pub {} ; MSGTYPE=$(rostopic type {}); echo $MSGTYPE; ]+abort'
         }
 
         # ser(v)ices
@@ -42,8 +42,8 @@ if [ -f ~/.fzf.bash ]; then
             rosservice list |
                 fzf \
                     --prompt 'rosservice> ' \
-                    --header '[enter] to paste | ctrl + [p] to "[p]ub" (call)' \
-                    --bind 'ctrl-p:execute[echo rosservice call {}]+abort'
+                    --header '[enter] to paste | ctrl + [c]all' \
+                    --bind 'ctrl-c:execute[echo rosservice call {}]+abort'
         }
 
         # para(m)eters

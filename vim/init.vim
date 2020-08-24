@@ -19,7 +19,6 @@ Plug 'unblevable/quick-scope'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'sbdchd/neoformat'
 call plug#end()
