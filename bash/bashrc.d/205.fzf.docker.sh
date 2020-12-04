@@ -1,6 +1,28 @@
 if [ -f ~/.fzf.bash ]; then
     if which docker >/dev/null 2>&1; then
 
+        bare() {
+          local name
+          local container
+          name=$1
+          if [ -n "$name" ]; then
+              name="--name $name"
+          else
+              unset name
+          fi
+          container=$(docker images | fzf-down --header-lines 1 --reverse | awk '{image=$1":"$2;print image}')
+
+                #--env="QT_X11_NO_MITSHM=1" \
+          [ -n "$container" ] && \
+              docker run -ti \
+                --gpus all \
+                --env="DISPLAY=$DISPLAY" \
+                --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+                --volume="/home/pdinh/.ssh:/root/.ssh:ro" \
+                --privileged --net=host \
+                $name \
+                $container
+        }
         create() {
           local name
           local container
@@ -22,10 +44,18 @@ if [ -f ~/.fzf.bash ]; then
                 --volume="/home/pdinh/.config/nvim:/root/.config/nvim:ro" \
                 --volume="/home/pdinh/dotfiles:/home/pdinh/dotfiles:ro" \
                 --volume="/home/pdinh/dotfiles/bash/bashrc.d:/root/.bashrc.d:ro" \
+                --volume="$HOME/.fzf-multi-snippets:/root/.fzf-multi-snippets:ro" \
+                --volume="$HOME/.fzf-shell-snippets:/root/.fzf-shell-snippets:ro" \
+                --volume="$HOME/.fzf-single-snippets:/root/.fzf-single-snippets:ro" \
+                --volume="$HOME/.notes:/root/.notes:ro" \
+                --volume="$HOME/Nextcloud:/home/pdinh/Nextcloud:ro" \
+                --volume="$HOME/ros/docker_mount_stuff/ros:/root/ros:ro" \
                 --privileged --net=host \
                 $name \
                 $container
         }
+
+
 
         start() {
           local fmstring
