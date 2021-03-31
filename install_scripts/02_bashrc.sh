@@ -17,3 +17,5 @@ if [ -f ~/dotfiles/bash/profile ]; then # TODO a921
 
     cp ~/dotfiles/bash/profile ~/.profile # TODO a921
 fi
+
+mkdir ~/.bash_logs

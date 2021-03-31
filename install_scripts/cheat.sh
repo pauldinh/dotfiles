@@ -1,9 +1,16 @@
 #!/bin/bash
 
 # cheat
-cd /tmp && \
-wget https://github.com/cheat/cheat/releases/download/4.0.4/cheat-linux-amd64.gz && \
-gzip -d cheat-linux-amd64.gz && \
-chmod +x cheat-linux-amd64 && \
-sudo mv cheat-linux-amd64 /usr/local/bin && \
-sudo ln -sn /usr/local/bin/cheat-linux-amd64 /usr/local/bin/cheat
+CHEAT_VERSION=4.2.0
+
+cwd=$(pwd)
+
+cd /tmp
+wget https://github.com/cheat/cheat/releases/download/${CHEAT_VERSION}/cheat-linux-amd64.gz
+gzip -d cheat-linux-amd64.gz
+mv cheat-linux-amd64 cheat
+chmod +x cheat
+sudo chown root:root cheat
+sudo mv cheat /usr/local/bin
+
+cd $cwd

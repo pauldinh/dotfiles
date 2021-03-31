@@ -1,9 +1,13 @@
 #!/bin/bash
 
 # neovim
-wget -P debs/  https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage
-chmod +x debs/nvim.appimage
-sudo mv debs/nvim.appimage /usr/local/bin/nvim
+cwd=$(pwd)
+
+cd /tmp
+curl -L https://github.com/neovim/neovim/releases/download/v0.4.4/nvim.appimage -o nvim
+chmod +x nvim
+sudo chown root:root nvim
+sudo mv nvim /usr/local/bin
 sudo update-alternatives --install /usr/bin/vi vi /usr/local/bin/nvim 60
 sudo update-alternatives --install /usr/bin/vim vim /usr/local/bin/nvim 60
 sudo update-alternatives --install /usr/bin/editor editor /usr/local/bin/nvim 60
@@ -13,3 +17,5 @@ curl -fLo ${HOME}/.local/share/nvim/site/autoload/plug.vim --create-dirs https:/
 
 # clipboard bs for ubuntu
 sudo apt install xclip
+
+cd $cwd
