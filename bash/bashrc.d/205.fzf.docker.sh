@@ -23,6 +23,7 @@ if [ -f ~/.fzf.bash ]; then
                 $name \
                 $container
         }
+
         create() {
           local name
           local container
@@ -49,7 +50,6 @@ if [ -f ~/.fzf.bash ]; then
                 --volume="$HOME/.fzf-single-snippets:/root/.fzf-single-snippets:ro" \
                 --volume="$HOME/.notes:/root/.notes:ro" \
                 --volume="$HOME/Nextcloud:/home/pdinh/Nextcloud:ro" \
-                --volume="$HOME/ros/docker_mount_stuff/ros:/root/ros:ro" \
                 --privileged --net=host \
                 $name \
                 $container
