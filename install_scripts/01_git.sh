@@ -19,3 +19,8 @@ cp ${HOME}/dotfiles/git/git-user ${HOME}/.git-user
 
 # fancy bash prompt
 git clone https://github.com/magicmonty/bash-git-prompt.git ~/.bash-git-prompt --depth=1
+
+# lazygit (git gui cli)
+sudo add-apt-repository ppa:lazygit-team/release
+sudo apt-get update
+sudo apt-get install lazygit
