@@ -1,6 +1,6 @@
 if [ -f ~/.fzf.bash ]; then
 
-    # fd - cd to selected directory
+    # fdd - cd to selected directory
     fdd() {
       local dir
       dir=$(find ${1:-.} -path '*/\.*' -prune \
