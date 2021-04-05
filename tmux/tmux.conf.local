@@ -275,6 +275,9 @@ tmux_conf_copy_to_os_clipboard=true
 # -- user customizations -------------------------------------------------------
 # this is the place to override or undo settings
 
+# https://github.com/fcsonline/tmux-thumbs - vimium + tmux
+set -g @plugin 'fcsonline/tmux-thumbs'
+
 # increase history size
 set -g history-limit 50000
 
