@@ -6,7 +6,7 @@ sudo apt update
 sudo apt install git
 
 # diff-so-fancy (git)
-ln -s ${HOME}/dotfiles/git/diff-so-fancy ${HOME}/.local/bin/diff-so-fancy # TODO a921
+sudo cp ${HOME}/dotfiles/git/diff-so-fancy /usr/local/bin # TODO a921
 
 # gitconfig
 # copy gitconfig instead of symlink cause default email may change

@@ -13,7 +13,7 @@
 ;[color]
 ;    ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
+    oldNormal = red bold
     oldHighlight = red bold 52
     newNormal = green bold
     newHighlight = green bold 22
@@ -50,12 +50,12 @@
 
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
-  cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+    cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
 # set "nvim" as tool for merging
 [merge]
-  tool = nvim
+    tool = nvim
 # automatically launch merge tool without displaying a prompt
 [mergetool]
-  prompt = false
+    prompt = false
 [pull]
-	rebase = false
+    rebase = false
