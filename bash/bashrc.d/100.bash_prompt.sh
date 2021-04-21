@@ -1,8 +1,15 @@
-if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+if which starship >/dev/null 2>&1; then
+
+    eval "$(starship init bash)"
+
+elif [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+
     GIT_PROMPT_ONLY_IN_REPO=0
     GIT_PROMPT_THEME=Single_line_Ubuntu
     source $HOME/.bash-git-prompt/gitprompt.sh
+
 else
+
     GIT_PS1_DESCRIBE_STYLE="describe"
     GIT_PS1_SHOWCOLORHINTS="y"
     GIT_PS1_SHOWDIRTYSTATE="y"
@@ -15,4 +22,5 @@ else
     else
         PROMPT_COMMAND='__git_ps1 "\[$bldblu\]\u@\h\[$txtrst\]:\[$bldpur\]\w" "\[$bldwht\]\\$\[$txtrst\] "'
     fi
+
 fi
