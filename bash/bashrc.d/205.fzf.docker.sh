@@ -44,12 +44,12 @@ if [ -f ~/.fzf.bash ]; then
                 --volume="/home/pdinh/.ssh:/root/.ssh:ro" \
                 --volume="/home/pdinh/.config/nvim:/root/.config/nvim:ro" \
                 --volume="/home/pdinh/dotfiles:/home/pdinh/dotfiles:ro" \
-                --volume="/home/pdinh/dotfiles/bash/bashrc.d:/root/.bashrc.d:ro" \
+                --volume="/home/pdinh/dotfiles/bash/bashrc.d:/root/.host.bashrc.d:ro" \
                 --volume="$HOME/.fzf-multi-snippets:/root/.fzf-multi-snippets:ro" \
                 --volume="$HOME/.fzf-shell-snippets:/root/.fzf-shell-snippets:ro" \
                 --volume="$HOME/.fzf-single-snippets:/root/.fzf-single-snippets:ro" \
                 --volume="$HOME/.notes:/root/.notes:ro" \
-                --volume="$HOME/Nextcloud:/home/pdinh/Nextcloud:ro" \
+                --volume="$HOME/nextcloud:/home/pdinh/nextcloud:ro" \
                 --privileged --net=host \
                 $name \
                 $container
