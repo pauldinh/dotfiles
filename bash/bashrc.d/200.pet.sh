@@ -15,4 +15,6 @@ if which pet >/dev/null 2>&1; then
         bind -x '"\C-x\C-r": "pet-select"'
     fi
 
+    alias pe='pet exec'
+
 fi
