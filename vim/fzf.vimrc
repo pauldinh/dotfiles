@@ -38,4 +38,5 @@ let g:fzf_colors =
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-map ; :Files ~/ros/src<Cr>
+"map ; :Files ~/ros/src<Cr>
+map ; :Files ~/gizmo_ws/src<Cr>

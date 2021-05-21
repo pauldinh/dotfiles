@@ -1,9 +1,9 @@
 #!/bin/bash
 
-mkdir -p ${HOME}/.config/nvim
-ln -sfv ${HOME}/dotfiles/vim/init.vim ${HOME}/.config/nvim/init.vim # TODO a921
+mkdir -p ~/.config/nvim
+ln -sfv ~/dotfiles/vim/init.vim ~/.config/nvim/init.vim # TODO a921
 
-for FILE in ${HOME}/dotfiles/vim/*.vimrc ; do # TODO a921
+for FILE in ~/dotfiles/vim/*.vimrc ; do # TODO a921
     f=$(basename -- $FILE)
-    ln -sfv $FILE ${HOME}/.config/nvim/$f
+    ln -sfv $FILE ~/.config/nvim/$f
 done
