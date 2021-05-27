@@ -1,3 +1,3 @@
-if [ -d ~/.nimble/bin ]; then
-    pathmunge ${HOME}/.nimble/bin
-fi
+#if [ -d ~/.nimble/bin ]; then
+#    pathmunge ${HOME}/.nimble/bin
+#fi

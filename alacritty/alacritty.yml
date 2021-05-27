@@ -74,20 +74,20 @@ scrolling:
 
 font:
   normal:
-    family: 'Roboto Mono for Powerline'
+    family: 'Iosevka Term'
     style: Regular
   bold:
-    family: 'Roboto Mono for Powerline'
-    style: Bold
+    family: 'Iosevka Term'
+    style: Regular Bold
   italic:
-    family: 'Roboto Mono for Powerline'
-    style: Italic
+    family: 'Iosevka Term'
+    style: Regular Italic
   size: 10.0
 
 background_opacity: 0.95
 
 mouse:
-  url:
+  hints:
     launcher: xdg-open
 
 shell:
