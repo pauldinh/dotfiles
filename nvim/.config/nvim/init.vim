@@ -1,6 +1,7 @@
 """" vim-plug
 call plug#begin('~/.config/nvim/plugged')
 
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-easy-align'

@@ -38,8 +38,8 @@ let g:fzf_colors =
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-if isdirectory($HOME.'/gizmo_ws/src')
-    map ; :Files $HOME/gizmo_ws/src<Cr>
-elseif isdirectory($HOME.'/ros/src/gizmo')
-    map ; :Files $HOME/ros/src/gizmo<Cr>
+if isdirectory($HOME.'/chimaera_ws/src')
+    map ; :Files $HOME/chimaera_ws/src<Cr>
+elseif isdirectory($HOME.'/ros/src/chimaera')
+    map ; :Files $HOME/ros/src/chimaera<Cr>
 endif
