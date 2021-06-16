@@ -2,6 +2,8 @@ if [ -f ~/.fzf.bash ]; then
 
     export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
     #export FZF_DEFAULT_OPTS="--no-height"
+    unset FZF_DEFAULT_OPTS
+    #export FZF_DEFAULT_OPTS="--ansi --preview-window 'right:60%' --preview 'bat --color=always --style=header,grid --line-range :300 {}'"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
     export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"

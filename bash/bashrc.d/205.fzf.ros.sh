@@ -59,7 +59,7 @@ if [ -f ~/.fzf.bash ]; then
           rosparam list |
               fzf \
                   --prompt 'rosparam> ' \
-                  --header '[enter] to paste | ctrl + [g]et or se[t] | [pgup/pgdn] to scroll preview'\
+                  --header '[enter] to paste | ctrl + [g]et or se[t] | [pgup/pgdn] to scroll preview' \
                   --bind 'ctrl-g:execute[echo rosparam get -p {}]+abort' \
                   --bind 'ctrl-t:execute[echo rosparam set {}]+abort' \
                   --bind 'pgup:preview-page-up' \

@@ -1,15 +1,21 @@
 if [ -f ~/.fzf.bash ]; then
 
-    # fdd - cd to selected directory
-    fdd() {
+    # fzfcd - cd to selected directory
+    _fzfcd() {
       local dir
-      dir=$(find ${1:-.} -path '*/\.*' -prune \
-                      -o -type d -print 2> /dev/null | fzf +m) &&
-      cd "$dir"
+      dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf --prompt 'fzfcd | cd to directory> ' --header 'ctrl + [j/k] to scroll' --preview 'lsd --group-dirs first --color=always {}')
+      echo $dir
     }
 
-    # fdr - cd to parent directory
-    fdr() {
+    fzfcd() {
+      local dir=$(_fzfcd)
+      if [ ! -z $dir ]; then
+        cd $dir
+      fi
+    }
+
+    # fzfcdp - cd to parent directory
+    _fzfcdp() {
       local declare dirs=()
       get_parent_dirs() {
         if [[ -d "${1}" ]]; then dirs+=("$1"); else return; fi
@@ -19,15 +25,58 @@ if [ -f ~/.fzf.bash ]; then
           get_parent_dirs $(dirname "$1")
         fi
       }
-      local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf-tmux --tac)
-      cd "$DIR"
+      local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf --prompt 'fzfcdp | cd to parent directory> ' --header 'ctrl + [j/k] to scroll' --preview 'lsd --group-dirs first --color=always {}')
+      echo $DIR
     }
 
-    # cdf - cd into the directory of the selected file
-    cdf() {
+    fzfcdp() {
+      local dir=$(_fzfcdp)
+      if [ ! -z $dir ]; then
+        cd $dir
+      fi
+    }
+
+    # fzfcdf - cd into the directory of the selected file
+    _fzfcdf() {
        local file
        local dir
-       file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+       file=$(fzf --prompt 'fzfcdf | cd to directory of file> ' --header 'ctrl + [j/k] to scroll' --preview 'bat --color=always {}')
+       dir=$(dirname "$file")
+       echo $dir
+   }
+
+    fzfcdf() {
+      cd $(_fzfcdf)
+    }
+
+    # fif - search file contents
+    _fif() {
+        local file
+        file="$(rg --no-line-number --max-count=1 --files-with-matches --no-messages "$@" | fzf --prompt 'fif | find in file> ' --header 'ctrl + [j/k] to scroll' --preview="rg --no-line-number --pretty --context 10 '"$@"' {} | bat --color=always")"
+        echo $file
+    }
+    fif() {
+      if [ ! "$#" -gt 0 ]; then echo "usage: fif <search term>"; return 1; fi
+      local file=$(_fif $@)
+      if [ ! -z $file ]; then
+        ${EDITOR:-vim}  $file
+      fi
+    }
+
+    # fzfed - open a file
+    _fzfed() {
+      IFS=$'\n' out=("$(fzf --prompt 'fzfed | edit a file> ' --header 'ctrl + [j/k] to scroll' --preview 'bat --color=always {}')")
+      key=$(head -1 <<< "$out")
+      file=$(head -2 <<< "$out" | tail -1)
+      if [ -n "$file" ]; then
+        echo $file
+      fi
+    }
+    fzfed() {
+      local file=$(_fzfed)
+      if [ ! -z $file ]; then
+        ${EDITOR:-vim}  $file
+      fi
     }
 
     # fman - search available man files with fzf and awk
@@ -35,24 +84,6 @@ if [ -f ~/.fzf.bash ]; then
         man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
     }
 
-    # fif - search file contents
-    fif() {
-        if [ ! "$#" -gt 0 ]; then echo "Need a string to search for!"; return 1; fi
-        local file
-        file="$(rga --max-count=1 --ignore-case --files-with-matches --no-messages "$@" | fzf-tmux +m --preview="rga --ignore-case --pretty --context 10 '"$@"' {}")" && open "$file"
-    }
-
-    # fo - open a file
-    #   - CTRL-O to open with `open` command,
-    #   - CTRL-E or Enter key to open with the $EDITOR
-    fo() (
-      IFS=$'\n' out=("$(fzf-tmux --query="$1" --exit-0 --expect=ctrl-o,ctrl-e)")
-      key=$(head -1 <<< "$out")
-      file=$(head -2 <<< "$out" | tail -1)
-      if [ -n "$file" ]; then
-        [ "$key" = ctrl-o ] && open "$file" || ${EDITOR:-vim} "$file"
-      fi
-    )
 
     # Alt-E snippets for shell
     __fzf_snippets__() (
