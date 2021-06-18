@@ -1,0 +1,10 @@
+% halp
+
+# syslog
+tail -f /var/log/syslog
+
+# network info
+ip -brief address && cat /etc/resolv.conf && cat /etc/hosts
+
+# dmesg
+sudo dmesg -wT

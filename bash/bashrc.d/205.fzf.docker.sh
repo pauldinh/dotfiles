@@ -18,7 +18,9 @@ if [ -f ~/.fzf.bash ]; then
                 --gpus all \
                 --env="DISPLAY=$DISPLAY" \
                 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+                --volume="/var/run/docker.sock:/var/run/docker.sock" \
                 --volume="/home/pdinh/.ssh:/root/.ssh:ro" \
+                --volume="${HOME}/dev-data:/root/dev-data:ro" \
                 --privileged --net=host \
                 $name \
                 $container
@@ -41,6 +43,7 @@ if [ -f ~/.fzf.bash ]; then
                 --env="DISPLAY=$DISPLAY" \
                 --env="QT_X11_NO_MITSHM=1" \
                 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+                --volume="/var/run/docker.sock:/var/run/docker.sock" \
                 --volume="/home/pdinh/.ssh:/root/.ssh:ro" \
                 --volume="/home/pdinh/.config/nvim:/root/.config/nvim:ro" \
                 --volume="/home/pdinh/dotfiles:/home/pdinh/dotfiles:ro" \
@@ -50,12 +53,11 @@ if [ -f ~/.fzf.bash ]; then
                 --volume="$HOME/.fzf-single-snippets:/root/.fzf-single-snippets:ro" \
                 --volume="$HOME/.notes:/root/.notes:ro" \
                 --volume="$HOME/nextcloud:/home/pdinh/nextcloud:ro" \
+                --volume="$HOME/dev-data:/root/dev-data:ro" \
                 --privileged --net=host \
                 $name \
                 $container
         }
-
-
 
         start() {
           local fmstring

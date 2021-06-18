@@ -3,7 +3,7 @@ if [ -f ~/.fzf.bash ]; then
     # fzfcd - cd to selected directory
     _fzfcd() {
       local dir
-      dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf --prompt 'fzfcd | cd to directory> ' --header 'ctrl + [j/k] to scroll' --preview 'lsd --group-dirs first --color=always {}')
+      dir=$(find ${1:-.} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf --prompt 'fzfcd | cd to directory> ' --header 'ctrl + [j/k] to scroll' --preview 'lsd --tree --depth 1 --group-dirs first --color=always {}')
       echo $dir
     }
 
@@ -25,7 +25,7 @@ if [ -f ~/.fzf.bash ]; then
           get_parent_dirs $(dirname "$1")
         fi
       }
-      local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf --prompt 'fzfcdp | cd to parent directory> ' --header 'ctrl + [j/k] to scroll' --preview 'lsd --group-dirs first --color=always {}')
+      local DIR=$(get_parent_dirs $(realpath "${1:-$PWD}") | fzf --prompt 'fzfcdp | cd to parent directory> ' --header 'ctrl + [j/k] to scroll' --preview 'lsd --tree --depth 1 --group-dirs first --color=always {}')
       echo $DIR
     }
 
