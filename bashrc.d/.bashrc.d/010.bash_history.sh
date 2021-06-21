@@ -31,4 +31,4 @@ HISTTIMEFORMAT="%F %T "
 # PROMPT_COMMAND:
 # 1)    history -a: log each command when issued
 # 2) if <stuff> fi: log *every* command to timestamped log in ~/.bash_logs
-PROMPT_COMMAND='history -a;if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash_logs/bash-history-$(date "+%Y-%m-%d").log; fi'
+#PROMPT_COMMAND='history -a;if [ "$(id -u)" -ne 0 ]; then echo "$(date "+%Y-%m-%d.%H:%M:%S") $(pwd) $(history 1)" >> ~/.bash_logs/bash-history-$(date "+%Y-%m-%d").log; fi'

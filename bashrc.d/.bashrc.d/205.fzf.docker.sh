@@ -16,8 +16,7 @@ if [ -f ~/.fzf.bash ]; then
                 unset name
             fi
             local container=$(docker images | _fzf-down --header-lines 1 --reverse | awk '{image=$1":"$2;print image}')
-            [ -n "$container" ] && \
-                docker run -ti \
+                local cmd="docker run -ti \
                   --gpus all \
                   --env="DISPLAY=$DISPLAY" \
                   --env="QT_X11_NO_MITSHM=1" \
@@ -27,7 +26,11 @@ if [ -f ~/.fzf.bash ]; then
                   --volume="$HOME/dev-data:/root/dev-data:ro" \
                   --privileged --net=host \
                   $name \
-                  $container
+                  $container"
+
+                sanitized_cmd=$(echo "$cmd" | tr -s " ")
+                history -s "$sanitized_cmd"
+                $sanitized_cmd
         }
 
         # denter - docker exec -it <container> /bin/bash
@@ -35,7 +38,9 @@ if [ -f ~/.fzf.bash ]; then
             local prompt="denter | docker exec -it <container> /bin/bash | scroll: ctrl+[jk]> "
             local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
             local container=$(docker ps --format "$fmtstring" | _fzf-down --prompt "$prompt" --header-lines 1 --reverse -q "$1" | awk '{print $1}')
-            [ -n "$container" ] && docker exec -ti "$container" /bin/bash
+            [ -n "$container" ] && \
+                history -s "docker exec -ti $container /bin/bash" && \
+                docker exec -ti $container /bin/bash
         }
 
         # dstart - docker start <container>
@@ -45,6 +50,7 @@ if [ -f ~/.fzf.bash ]; then
             local containers=$(docker ps --filter "status=exited" --format "$fmtstring" | _fzf-down --prompt "$prompt" --header-lines 1 --reverse --multi | awk '{print $1}')
             for container_name in $containers
             do
+                history -s "docker start $container_name"
                 docker start $container_name
             done
         }
@@ -56,6 +62,7 @@ if [ -f ~/.fzf.bash ]; then
             local containers=$(docker ps --format "$fmtstring" | _fzf-down --prompt "$prompt" --header-lines 1 --reverse -q "$1" --multi | awk '{print $1}')
             for container_name in $containers
             do
+                history -s "docker stop $container_name"
                 docker stop $container_name
             done
         }
@@ -84,6 +91,16 @@ if [ -f ~/.fzf.bash ]; then
                 echo "#docker rmi $images"
         }
 
+        # dpull - docker pull <image>
+        dpull() {
+            local prompt="dpull | docker pull <image> | scroll: ctrl+[jk], select/deselect: tab/shift-tab> "
+            local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
+            local image=$(docker images | _fzf-down --prompt "$prompt" --header-lines 1 --reverse -q "$1" | awk '{print $1}' | tr "\n" " ")
+            [ -n "$image" ] && \
+                printf "docker pull $image\n" && \
+                history -s "docker pull $image" && \
+                docker pull $image
+        }
 
     fi
 fi
