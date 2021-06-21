@@ -92,5 +92,5 @@ mouse:
 
 shell:
   program: /bin/bash
-#  args:
-#    - --login
+  args:
+    - --login

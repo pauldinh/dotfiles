@@ -24,7 +24,7 @@ HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"
 # Use standard ISO 8601 timestamp
 # %F equivalent to %Y-%m-%d
 # %T equivalent to %H:%M:%S (24-hours format)
-HISTTIMEFORMAT='%F %T '
+HISTTIMEFORMAT="%F %T "
 
 # log *every* command to ~/.history in a timestamped log
 

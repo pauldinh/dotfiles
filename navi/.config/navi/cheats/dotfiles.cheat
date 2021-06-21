@@ -1,0 +1,7 @@
+% dotfiles
+
+# cd to dotfiles
+pushd . && cd ~/dotfiles/bashrc.d/.bashrc.d
+
+# cd to dotfiles cheats
+pushd . && cd ~/dotfiles/navi/.config/navi/cheats

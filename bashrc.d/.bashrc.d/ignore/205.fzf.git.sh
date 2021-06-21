@@ -5,6 +5,10 @@ if [ -f ~/.fzf.bash ]; then
         # all of these are bound to Ctrl Foo + Ctrl Bar, where Foo and Bar are keystrokes
         # all of these are bound to keystrokes (ignore first g) e.g. ggf is Ctrl G + Ctrl F
 
+        is_in_git_repo() {
+            git rev-parse HEAD > /dev/null 2>&1
+        }
+
         # dirty files
         ggf() {
           is_in_git_repo || return
