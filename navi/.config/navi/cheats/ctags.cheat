@@ -1,0 +1,4 @@
+% ctags
+
+# generate ctags
+ctags --recurse --exclude=@.ctagsignore
