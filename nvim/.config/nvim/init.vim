@@ -1,4 +1,4 @@
-"""" vim-plug
+" vim-plug
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -15,6 +15,8 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'sbdchd/neoformat'
+"Plug 'neovim/nvim-lspconfig'
+
 call plug#end()
 
 runtime settings.vimrc
