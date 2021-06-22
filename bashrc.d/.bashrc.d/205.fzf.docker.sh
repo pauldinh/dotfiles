@@ -15,22 +15,24 @@ if [ -f ~/.fzf.bash ]; then
             else
                 unset name
             fi
-            local container=$(docker images | _fzf-down --header-lines 1 --reverse | awk '{image=$1":"$2;print image}')
+            local image=$(docker images | _fzf-down --header-lines 1 --reverse | awk '{image=$1":"$2;print image}')
+            if [ -n $image ]; then
                 local cmd="docker run -ti \
-                  --gpus all \
-                  --env="DISPLAY=$DISPLAY" \
-                  --env="QT_X11_NO_MITSHM=1" \
-                  --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-                  --volume="/var/run/docker.sock:/var/run/docker.sock" \
-                  --volume="$HOME/.ssh:/root/.ssh:ro" \
-                  --volume="$HOME/dev-data:/root/dev-data:ro" \
-                  --privileged --net=host \
-                  $name \
-                  $container"
+                    --gpus all \
+                    --env="DISPLAY=$DISPLAY" \
+                    --env="QT_X11_NO_MITSHM=1" \
+                    --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+                    --volume="/var/run/docker.sock:/var/run/docker.sock" \
+                    --volume="$HOME/.ssh:/root/.ssh:ro" \
+                    --volume="$HOME/dev-data:/root/dev-data:ro" \
+                    --privileged --net=host \
+                    $name \
+                    $image"
 
                 sanitized_cmd=$(echo "$cmd" | tr -s " ")
                 history -s "$sanitized_cmd"
                 $sanitized_cmd
+            fi
         }
 
         # denter - docker exec -it <container> /bin/bash
@@ -48,11 +50,10 @@ if [ -f ~/.fzf.bash ]; then
             local prompt="dstart | docker start <container> | scroll: ctrl+[jk], select/deselect: tab/shift-tab> "
             local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
             local containers=$(docker ps --filter "status=exited" --format "$fmtstring" | _fzf-down --prompt "$prompt" --header-lines 1 --reverse --multi | awk '{print $1}')
-            for container_name in $containers
-            do
-                history -s "docker start $container_name"
-                docker start $container_name
-            done
+            [ -n "$containers" ] && \
+                local sanitized_containers=$(echo $containers | tr -s " ") && \
+                history -s "docker start $sanitized_containers" && \
+                docker start $sanitized_containers
         }
 
         # dstop - docker stop <container>
@@ -60,11 +61,10 @@ if [ -f ~/.fzf.bash ]; then
             local prompt="dstop | docker stop <container> | scroll: ctrl+[jk], select/deselect: tab/shift-tab> "
             local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
             local containers=$(docker ps --format "$fmtstring" | _fzf-down --prompt "$prompt" --header-lines 1 --reverse -q "$1" --multi | awk '{print $1}')
-            for container_name in $containers
-            do
-                history -s "docker stop $container_name"
-                docker stop $container_name
-            done
+            [ -n "$containers" ] && \
+                local sanitized_containers=$(echo $containers | tr -s " ") && \
+                history -s "docker stop $sanitized_containers" && \
+                docker stop $sanitized_containers
         }
 
         # drm - docker rm <container>
@@ -93,7 +93,7 @@ if [ -f ~/.fzf.bash ]; then
 
         # dpull - docker pull <image>
         dpull() {
-            local prompt="dpull | docker pull <image> | scroll: ctrl+[jk], select/deselect: tab/shift-tab> "
+            local prompt="dpull | docker pull <image> | scroll: ctrl+[jk]> "
             local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
             local image=$(docker images | _fzf-down --prompt "$prompt" --header-lines 1 --reverse -q "$1" | awk '{print $1}' | tr "\n" " ")
             [ -n "$image" ] && \

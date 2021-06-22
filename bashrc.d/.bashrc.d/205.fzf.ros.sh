@@ -20,7 +20,7 @@ if [ -f ~/.fzf.bash ]; then
         # ctrl-e (*e*cho)
         # - pipe `rostopic echo <selection>` into terminal
         # - does not execute command to allow additional args e.g. "-n1" to echo a single message
-        # ctrl-p (*p*ublish)
+        # ctrl-u (p*u*blish)
         # - pipe `rostopic pub <selection_topic> <topic_msg_type> ` into terminal
         # - hit <tab> <tab> to autocomplete empty message
         gft() {
@@ -35,7 +35,7 @@ if [ -f ~/.fzf.bash ]; then
         # ser(v)ices
         # ctrl-f + ctrl-v
         # additional keybinds at fzf prompt (instead of hitting enter)
-        # ctrl-p (*p*ublish.. or how about *p*retend "publish" makes sense for services to keep it consistent with rostopic pub)
+        # ctrl-c (*c*all)
         # - pipe `rosservice call <selection>` into terminal
         # - hit <tab> <tab> to autocomplete empty message
         gfv() {
