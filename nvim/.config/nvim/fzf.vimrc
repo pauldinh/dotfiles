@@ -32,14 +32,8 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" Enable per-command history
-" - History files will be stored in the specified directory
-" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
-"   'previous-history' instead of 'down' and 'up'.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
 if isdirectory($HOME.'/chimaera_ws/src')
-    map ; :Files $HOME/chimaera_ws/src<Cr>
-elseif isdirectory($HOME.'/ros/src/chimaera')
-    map ; :Files $HOME/ros/src/chimaera<Cr>
+    map ; :Files! $HOME/chimaera_ws/src<Cr>
+elseif isdirectory($HOME.'/dev-data')
+    map ; :Files! $HOME/dev-data<Cr>
 endif

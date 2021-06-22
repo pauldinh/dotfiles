@@ -302,6 +302,10 @@ bind C-a send-prefix
 # bind urlview to u since U is to update plugins in tpm
 bind u run "cut -c3- ~/.tmux.conf | sh -s _urlview #{pane_id}"
 
+# replace old F (facebook path picker) with new F (tmux-thumbs)
+unbind F
+set -g @thumbs-key F
+
 # don't constrain size to smallest client that's connected
 set -g aggressive-resize on
 

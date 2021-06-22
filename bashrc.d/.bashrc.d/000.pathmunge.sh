@@ -1,5 +1,7 @@
+# Use in other scripts to prepend/append to $PATH
 # $ pathmunge <path>       : PATH=<path>:$PATH
 # $ pathmunge <path> after : PATH=$PATH:<path>
+# e.g. pathmunge $HOME/.local/bin
 pathmunge () {
     if ! echo "$PATH" | /bin/grep -Eq "(^|:)$1($|:)" ; then
         if [ "$2" = "after" ] ; then

@@ -1,27 +1,8 @@
-#if [ -f ~/.gitstatus/gitstatus.prompt.sh ]; then
-#    #source ~/.gitstatus/gitstatus.prompt.sh
-#    #PS1='\w ${GITSTATUS_PROMPT} \$ ' # directory followed by git status and $/# (normal/root)
-
-#    #source ~/.gitstatus/gitstatus.plugin.sh
-#    #function my_set_prompt() {
-#    #  PS1='\w'
-
-#    #  if gitstatus_query && [[ "$VCS_STATUS_RESULT" == ok-sync ]]; then
-#    #    if [[ -n "$VCS_STATUS_LOCAL_BRANCH" ]]; then
-#    #      PS1+=" ${VCS_STATUS_LOCAL_BRANCH//\\/\\\\}"  # escape backslash
-#    #    else
-#    #      PS1+=" @${VCS_STATUS_COMMIT//\\/\\\\}"       # escape backslash
-#    #    fi
-#    #    (( "VCS_STATUS_HAS_STAGED"    )) && PS1+='+'
-#    #    (( "VCS_STATUS_HAS_UNSTAGED"  )) && PS1+='!'
-#    #    (( "VCS_STATUS_HAS_UNTRACKED" )) && PS1+='?'
-#    #  fi
-
-#    #  PS1+='\n\$ '
-
-#    #  shopt -u promptvars  # disable expansion of '$(...)' and the like
-#    #}
-
-#    #gitstatus_stop && gitstatus_start
-#    #PROMPT_COMMAND=my_set_prompt
-#fi
+if [ -f ~/.gitstatus/gitstatus.prompt.sh ]; then
+    source ~/.gitstatus/gitstatus.prompt.sh
+    PS1='\[\033[01;32m\]\u@\h\[\033[00m\] '           # green user@host
+    PS1+='\[\033[01;34m\]\w\[\033[00m\]'              # blue current working directory
+    PS1+='${GITSTATUS_PROMPT:+ $GITSTATUS_PROMPT} '   # git status (requires promptvars option)
+    PS1+='\[\033[01;$((31+!$?))m\]\$\[\033[00m\] '    # green/red (success/error) $/# (normal/root)
+    PS1+='\[\e]0;\u@\h: \w\a\]'                       # terminal title: user@host: dir
+fi
