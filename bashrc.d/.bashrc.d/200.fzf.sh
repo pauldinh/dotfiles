@@ -58,7 +58,9 @@ if [ -f ~/.fzf.bash ]; then
             dir=$(_fzd $1)
         fi
         if [ ! -z $dir ]; then
-            pushd . >/dev/null 2>&1 && echo "cd $dir && ls" && cd $dir && ls
+            local cmd="cd $dir && ls"
+            history -s "$cmd"
+            pushd . >/dev/null 2>&1 && printf "$cmd\n" && eval $cmd
         fi
     }
 
@@ -79,7 +81,9 @@ if [ -f ~/.fzf.bash ]; then
     fzdf() {
         local dir=$(_fzdf)
         if [ ! -z $dir ] && [ $dir != '.' ]; then
-            pushd . >/dev/null 2>&1 && echo "cd $dir && ls" && cd $dir && ls
+            local cmd="cd $dir && ls"
+            history -s "$cmd"
+            pushd . >/dev/null 2>&1 && printf "$cmd\n" && eval $cmd
         fi
     }
 
@@ -104,7 +108,9 @@ if [ -f ~/.fzf.bash ]; then
     fzo() {
         local file=$(_fzo)
         if [ ! -z $file ]; then
-            ${EDITOR:-vim} $file
+            local cmd="${EDITOR:-vim} $file"
+            history -s "$cmd"
+            eval $cmd
         fi
     }
 
@@ -128,7 +134,9 @@ if [ -f ~/.fzf.bash ]; then
             if [ ! "$#" -gt 0 ]; then echo "usage: fzg <search term>"; return 1; fi
             local file=$(_fzg $@)
             if [ ! -z $file ]; then
-                ${EDITOR:-vim} $file
+                local cmd="${EDITOR:-vim} $file"
+                history -s "$cmd"
+                eval $cmd
             fi
         }
     else

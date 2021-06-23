@@ -31,7 +31,7 @@ if [ -f ~/.fzf.bash ]; then
 
                 sanitized_cmd=$(echo "$cmd" | tr -s " ")
                 history -s "$sanitized_cmd"
-                $sanitized_cmd
+                eval $sanitized_cmd
             fi
         }
 
