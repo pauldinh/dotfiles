@@ -78,10 +78,10 @@ font:
     style: Regular
   bold:
     family: 'Iosevka Term'
-    style: Regular Bold
+    style: Bold
   italic:
     family: 'Iosevka Term'
-    style: Regular Italic
+    style: Italic
   size: 10.0
 
 background_opacity: 0.95
