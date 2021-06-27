@@ -1,4 +1,4 @@
-% vpn
+% paul | vpn
 
 # start openvpn
 sudo openvpn --config ~/vpn/client.ovpn

@@ -1,4 +1,4 @@
-% dotfiles
+% paul | dotfiles
 
 # cd to dotfiles
 pushd . && cd ~/dotfiles/bashrc.d/.bashrc.d
