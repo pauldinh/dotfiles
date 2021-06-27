@@ -1,0 +1,4 @@
+% paul | bandwhich
+
+# sniff
+bandwhich --dns-server 8.8.8.8
