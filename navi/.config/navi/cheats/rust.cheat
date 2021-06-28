@@ -1,0 +1,11 @@
+% paul | rust
+
+# update rust and cargo
+rustup update
+
+# list installed crates
+cargo-install-update install-update -l
+
+# update installed crates
+cargo-install-update install-update -a
+
