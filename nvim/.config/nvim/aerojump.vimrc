@@ -8,3 +8,7 @@ nmap <Leader>aa <Plug>(AerojumpFromCursorBolt)
 
 " Or create mappings (without leader)
 "nmap <space> <Plug>(AerojumpSpace)
+let g:aerojump_keymaps = {
+  \ "<C-j>": "AerojumpDown",
+  \ "<C-k>": "AerojumpUp",
+  \ }
