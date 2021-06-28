@@ -8,3 +8,7 @@ ip -brief address && cat /etc/resolv.conf && cat /etc/hosts
 
 # dmesg
 sudo dmesg -wT
+
+# list rc packages, dpkg, apt
+dpkg -l | rg "^rc " | awk '{print $2}'
+
