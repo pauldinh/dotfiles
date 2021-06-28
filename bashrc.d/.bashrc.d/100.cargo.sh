@@ -1,3 +1,3 @@
-if [ -d ~/.cargo ]; then
-    pathmunge ~/.cargo/bin
+if [ -d $HOME/.cargo ]; then
+    pathmunge $HOME/.cargo/bin
 fi

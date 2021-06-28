@@ -1,3 +1,3 @@
-if [ -s ~/.rvm/scripts/rvm ]; then
-    source ~/.rvm/scripts/rvm
+if [ -s $HOME/.rvm/scripts/rvm ]; then
+    source $HOME/.rvm/scripts/rvm
 fi

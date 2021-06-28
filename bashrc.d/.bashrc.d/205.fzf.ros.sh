@@ -1,4 +1,4 @@
-if [ -f ~/.fzf.bash ]; then
+if [ -f $HOME/.fzf.bash ]; then
     if [ -d /opt/ros ]; then
 
         # tldr

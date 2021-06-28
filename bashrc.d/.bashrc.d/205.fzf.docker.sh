@@ -1,4 +1,4 @@
-if [ -f ~/.fzf.bash ]; then
+if [ -f $HOME/.fzf.bash ]; then
     if which docker >/dev/null 2>&1; then
 
         _fzf-down() {

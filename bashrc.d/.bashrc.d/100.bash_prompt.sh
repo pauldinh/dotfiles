@@ -1,5 +1,5 @@
-if [ -f ~/.gitstatus/gitstatus.prompt.sh ]; then
-    source ~/.gitstatus/gitstatus.prompt.sh
+if [ -f $HOME/.gitstatus/gitstatus.prompt.sh ]; then
+    source $HOME/.gitstatus/gitstatus.prompt.sh
 
     _isroot=false
     [[ "${UID}" -eq 0 ]] && _isroot=true

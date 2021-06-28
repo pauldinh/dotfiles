@@ -1,4 +1,4 @@
-if [ -f ~/.fzf.bash ]; then
+if [ -f $HOME/.fzf.bash ]; then
 
     if which tree >/dev/null 2>&1; then
         _fzf_shell_ls_preview="tree -L 1 -C {}"
@@ -163,7 +163,7 @@ if [ -f ~/.fzf.bash ]; then
         }
 
         # need to source *after* overriding compgen commands
-        source ~/.fzf.bash
+        source $HOME/.fzf.bash
     fi
 
 fi
