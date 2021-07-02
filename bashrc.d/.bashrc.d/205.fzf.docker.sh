@@ -1,4 +1,4 @@
-if [ -f $HOME/.fzf.bash ]; then
+if [ -f ~/.fzf.bash ]; then
     if which docker >/dev/null 2>&1; then
 
         _fzf-down() {
@@ -15,7 +15,7 @@ if [ -f $HOME/.fzf.bash ]; then
             else
                 unset name
             fi
-            local image=$(docker images | _fzf-down --header-lines 1 --reverse | awk '{image=$1":"$2;print image}')
+            local image=$(docker images --filter "dangling=false" | _fzf-down --header-lines 1 --reverse | awk '{image=$1":"$2;print image}')
             if [ -n $image ]; then
                 local cmd="docker run -ti \
                     --gpus all \
@@ -84,7 +84,7 @@ if [ -f $HOME/.fzf.bash ]; then
         drmi() {
             local prompt="drm | docker rmi <image> | scroll: ctrl+[jk], select/deselect: tab/shift-tab> "
             local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
-            local images=$(docker images | _fzf-down --prompt "$prompt" --header-lines 1 --reverse -q "$1" --multi | awk '{print $1}' | tr "\n" " ")
+            local images=$(docker images --filter "dangling=false" | _fzf-down --prompt "$prompt" --header-lines 1 --reverse -q "$1" --multi | awk '{print $1":"$2}' | tr "\n" " ")
             [ -n "$images" ] && \
                 history -s "#docker rmi $images" && \
                 printf "adding destructive command to history as a #comment, up arrow and remove # to execute\n" && \
@@ -95,7 +95,7 @@ if [ -f $HOME/.fzf.bash ]; then
         dpull() {
             local prompt="dpull | docker pull <image> | scroll: ctrl+[jk]> "
             local fmtstring="table {{.Names}}\t{{.Status}}\t{{.RunningFor}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.Ports}}"
-            local image=$(docker images | _fzf-down --prompt "$prompt" --header-lines 1 --reverse -q "$1" | awk '{print $1}' | tr "\n" " ")
+            local image=$(docker images --filter "dangling=false" | _fzf-down --prompt "$prompt" --header-lines 1 --reverse -q "$1" | awk '{print $1":"$2}' | tr "\n" " ")
             [ -n "$image" ] && \
                 printf "docker pull $image\n" && \
                 history -s "docker pull $image" && \
